@@ -1,16 +1,16 @@
 /**
  * Created by olaskierbiszewska on 13.12.15.
  */
-public class Vehicle {
+public class Car {
     private String brand;
     private  String model;
     private Integer year;
     private String vim;
 
-    public Vehicle() {
+    public Car() {
     }
 
-    public Vehicle(String brand, String model, Integer year, String vim) {
+    public Car(String brand, String model, Integer year, String vim) {
         this.brand = brand;
         this.model = model;
         this.year = year;

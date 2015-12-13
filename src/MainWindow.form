@@ -76,7 +76,9 @@
                     <preferred-size width="150" height="50"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <gridColor color="-14408668"/>
+                </properties>
               </component>
             </children>
           </grid>
@@ -106,13 +108,17 @@
                   <text value="Samochody"/>
                 </properties>
               </component>
-              <component id="22b11" class="javax.swing.JTable" binding="tableCars">
+              <component id="22b11" class="javax.swing.JTable" binding="tableCars" custom-create="true">
                 <constraints>
                   <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
                 </constraints>
-                <properties/>
+                <properties>
+                  <autoCreateRowSorter value="true"/>
+                  <foreground color="-14467653"/>
+                  <gridColor color="-15392959"/>
+                </properties>
               </component>
             </children>
           </grid>

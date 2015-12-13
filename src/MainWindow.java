@@ -1,5 +1,5 @@
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
+import java.util.Vector;
 
 /**
  * Created by olaskierbiszewska on 13.12.15.
@@ -26,11 +26,15 @@ public class MainWindow extends JFrame {
     }
 
     private void createUIComponents() {
-        // TODO: place custom component creation code here
-        DefaultTableModel model = new DefaultTableModel(new Object[][] {
-                { "some", "text" }, { "any", "text" }, { "even", "more" },
-                { "text", "strings" }, { "and", "other" }, { "text", "values" } },
-                new Object[] { "Column 1", "Column 2" });
-        tableDrivers = new JTable(model);
+        // custom component creation code here
+        Vector dummyMacData = new Vector(10, 10);
+        dummyMacData.addElement(new Car("Toyota", "Corolla", new Integer(2011), "398389"));
+        CarTableModel carModel = new CarTableModel(dummyMacData);
+        tableCars = new JTable(carModel);
+
+        Vector dummyDataDriver = new Vector(10, 10);
+        dummyDataDriver.addElement(new Driver("Jan", "Kowalski", new Integer(34), "Brak uwag"));
+        DriverTableModel driverModel = new DriverTableModel(dummyDataDriver);
+        tableDrivers = new JTable(driverModel);
     }
 }
