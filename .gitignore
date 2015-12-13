@@ -1,0 +1,11 @@
+#ignore log files
+*.log
+#ignore target directory
+**/target /target
+#ignore dist folder
+**/dist /dist
+#ignore build folder
+**/build /build **/.settings /.settings /.project **/.project
+#ignore idea files
+.idea **/.idea *.iml **/.iml *.ipr **/.ipr *.iws
+**/.iws
