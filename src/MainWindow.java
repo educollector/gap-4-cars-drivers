@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 
 /**
@@ -23,6 +25,13 @@ public class MainWindow extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setSize(600, 600);
+        addDriverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AddDriverForm addDriverForm = new AddDriverForm();
+
+            }
+        });
     }
 
     private void createUIComponents() {
@@ -36,5 +45,7 @@ public class MainWindow extends JFrame {
         dummyDataDriver.addElement(new Driver("Jan", "Kowalski", new Integer(34), "Brak uwag"));
         DriverTableModel driverModel = new DriverTableModel(dummyDataDriver);
         tableDrivers = new JTable(driverModel);
+
+        tableDrivers.getColumnModel().getColumn(1).setHeaderValue("newHeader");
     }
 }
