@@ -17,6 +17,8 @@ public class MainWindow extends JFrame {
     private JButton deleteDriverButton;
     private JButton editDriverButton;
 
+    private AddDriverForm addDriverForm;
+    private Driver tmpDriver;
 
     public MainWindow() {
         super("App");
@@ -28,11 +30,15 @@ public class MainWindow extends JFrame {
         addDriverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AddDriverForm addDriverForm = new AddDriverForm();
-
+                addDriverForm = new AddDriverForm(MainWindow.this);
             }
         });
     }
+
+    public void addDriver(Driver d){
+
+    }
+
 
     private void createUIComponents() {
         // custom component creation code here

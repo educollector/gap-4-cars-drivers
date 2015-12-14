@@ -1,12 +1,17 @@
 /**
  * Created by olaskierbiszewska on 13.12.15.
  */
-public class Driver {
+import java.io.Serializable;
+import java.util.List;
+
+public class Driver implements Serializable {
 
     private String name;
-    private  String surname;
+    private String surname;
     private Integer age;
     private String info;
+
+    private List<Car> cars;
 
     public Driver() {
         this.name = "testName";
@@ -20,6 +25,14 @@ public class Driver {
         this.surname = surname;
         this.age = age;
         this.info = info;
+    }
+
+    public Driver(String name, String surname, Integer age, String info, List<Car> cars) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.info = info;
+        this.cars = cars;
     }
 
     public String getName() { return name; }
@@ -37,5 +50,9 @@ public class Driver {
     public String getInfo() { return info; }
 
     public void setInfo(String info) { this.info = info; }
+
+    public List<Car> getCars() {  return cars; }
+
+    public void setCars(List<Car> cars) {  this.cars = cars; }
 
 }
