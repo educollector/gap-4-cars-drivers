@@ -1,7 +1,8 @@
+import domain.Driver;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Window;
 
 /**
  * Created by olaskierbiszewska on 13.12.15.

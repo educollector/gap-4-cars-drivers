@@ -1,6 +1,8 @@
 /**
  * Created by olaskierbiszewska on 13.12.15.
  */
+import domain.Driver;
+
 import javax.swing.table.AbstractTableModel;
 import java.util.Vector;
 

@@ -2,6 +2,8 @@
  * Created by olaskierbiszewska on 13.12.15.
  */
 
+import domain.Car;
+
 import javax.swing.table.AbstractTableModel;
 import java.util.Vector;
 
@@ -37,7 +39,7 @@ public class CarTableModel extends AbstractTableModel {
                 macData.setYear((Integer) value);
                 break;
             case 3:
-                macData.setVim((String) value);
+                macData.setVin((String) value);
                 break;
         }
     }
@@ -60,7 +62,7 @@ public class CarTableModel extends AbstractTableModel {
             case 2:
                 return macData.getYear();
             case 3:
-                return macData.getVim();
+                return macData.getVin();
         }
 
         return new String();
