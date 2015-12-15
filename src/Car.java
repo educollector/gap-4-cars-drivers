@@ -1,7 +1,11 @@
+import org.javalite.activejdbc.Model;
+
+import java.io.Serializable;
+
 /**
  * Created by olaskierbiszewska on 13.12.15.
  */
-public class Car {
+public class Car extends Model  implements Serializable {
     private String brand;
     private  String model;
     private Integer year;

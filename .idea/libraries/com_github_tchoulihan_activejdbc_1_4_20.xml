@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="com.github.tchoulihan:activejdbc:1.4.20" type="repository">
+    <properties maven-id="com.github.tchoulihan:activejdbc:1.4.20" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/activejdbc-1.4.20.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/servlet-api-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jcl-over-slf4j-1.7.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-simple-1.7.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javalite-common-1.4.20.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/oscache-2.4.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ehcache-core-2.4.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/activejdbc-1.4.20-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/activejdbc-1.4.20-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

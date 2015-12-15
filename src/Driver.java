@@ -1,10 +1,12 @@
 /**
  * Created by olaskierbiszewska on 13.12.15.
  */
+import org.javalite.activejdbc.Model;
+
 import java.io.Serializable;
 import java.util.List;
 
-public class Driver implements Serializable {
+public class Driver extends Model implements Serializable {
 
     private String name;
     private String surname;
