@@ -7,53 +7,52 @@ import java.util.List;
 
 public class Driver extends Model {
 
-    private String name;
-    private String surname;
-    private Integer age;
-    private String info;
-
-    private List<Car> cars;
-
     public Driver() {
-        this.name = "testName";
-        this.surname = "testSurname";
-        this.age = 111;
-        this.info = "testInfo";
-    }
-
-    public Driver(String name, String surname, Integer age, String info) {
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.info = info;
     }
 
     public Driver(String name, String surname, Integer age, String info, List<Car> cars) {
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.info = info;
-        this.cars = cars;
+
+        setName(name);
+        setSurname(surname);
+        setAge(age);
+        setInfo(info);
+        setCars(cars);
     }
 
-    public String getName() { return name; }
+    public Driver(String name, String surname, Integer age, String info) {
+        setName(name);
+        setSurname(surname);
+        setAge(age);
+        setInfo(info);
+    }
 
-    public void setName(String name) {  this.name = name; }
+    public String getName() { return getString("name"); }
 
-    public String getSurname() {  return surname; }
+    public void setName(String name) { set("name", name); }
 
-    public void setSurname(String surname) { this.surname = surname; }
+    public String getSurname() { return getString("surname"); }
 
-    public Integer getAge() { return age; }
+    public void setSurname(String surname) { set("surname", surname); }
 
-    public void setAge(Integer age) { this.age = age; }
+    public Integer getAge() { return getInteger("age"); }
 
-    public String getInfo() { return info; }
+    public void setAge(Integer age) { set("age", age); }
 
-    public void setInfo(String info) { this.info = info; }
+    public String getInfo() { return getString("info"); }
 
-    public List<Car> getCars() {  return cars; }
+    public void setInfo(String info) { set("info", info); }
 
-    public void setCars(List<Car> cars) {  this.cars = cars; }
+    public List<Car> getCars() {
+        Integer driverId = getInteger("id");
+        Car c = new Car();
+        List<Car> cars = c.where("id_driver = ?", driverId);
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        for(Car car : cars){
+            car.saveIt();
+        }
+    }
 
 }

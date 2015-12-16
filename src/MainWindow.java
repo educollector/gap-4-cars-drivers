@@ -46,7 +46,7 @@ public class MainWindow extends JFrame {
     private void createUIComponents() {
         // custom component creation code here
         Vector dummyMacData = new Vector(10, 10);
-        dummyMacData.addElement(new Car("Toyota", "Corolla", new Integer(2011), "398389"));
+        dummyMacData.addElement(new Car("Toyota", "Corolla", new Integer(2011), "398389", 1));
         CarTableModel carModel = new CarTableModel(dummyMacData);
         tableCars = new JTable(carModel);
 

@@ -10,11 +10,12 @@ public class Car extends Model {
     public Car() {
     }
 
-    public Car(String brand, String model, Integer year, String vin) {
+    public Car(String brand, String model, Integer year, String vin, Integer driverId) {
         setBrand(brand);
         setModel(model);
         setYear(year);
         setVin(vin);
+        setDriverID(driverId);
     }
 
     public String getBrand() {
@@ -33,9 +34,7 @@ public class Car extends Model {
         set("model", model);
     }
 
-    public Integer getYear() {
-        return getInteger("year");
-    }
+    public Integer getYear() { return getInteger("year"); }
 
     public void setYear(Integer year) {
         set("year", year);
@@ -47,5 +46,13 @@ public class Car extends Model {
 
     public void setVin(String vin) {
         set("vin", vin);
+    }
+
+    public Integer getDriverId() {
+        return getInteger("id_driver");
+    }
+
+    public void setDriverID(Integer driverId) {
+        set("id_driver", driverId);
     }
 }

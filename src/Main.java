@@ -3,10 +3,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.introspect.AnnotatedMember;
 import com.fasterxml.jackson.databind.introspect.JacksonAnnotationIntrospector;
 import domain.Car;
+import domain.Driver;
 import org.javalite.activejdbc.Base;
 import org.javalite.activejdbc.Model;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by olaskierbiszewska on 13.12.15.
@@ -24,8 +27,15 @@ public class Main {
 
         Car car = new Car();
         car.setYear(1233);
-        car.setModel("Toyota");
-        car.setBrand("Supra");
+        car.setModel("BMW");
+        car.setBrand("Z3");
+        car.setDriverID(1);
+        car.saveIt();
+        List<Car> cars =  new ArrayList<Car>();
+        cars.add(car);
+
+        Driver driver = new Driver("Marek", "Nowak", 25, "Brak info");
+        driver.saveIt();
 
         try {
             String json = mapper.writeValueAsString(car);
