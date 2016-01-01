@@ -38,15 +38,11 @@ public class MainWindow extends JFrame {
         drivers = new Driver().where("id >= ?", 0);
         cars = new Car().where("id >= ?, 0");
 
+        DriverTableModel driversModel = (DriverTableModel) tableDrivers.getModel();
+        driversModel.m_macDataVector.clear();
         for(Driver d : drivers){
 
-            Object[] row = {d.getName(), d.getSurname(), d.getAge(), d.getInfo()};
-
-            DriverTableModel model = (DriverTableModel) tableDrivers.getModel();
-
-            model.(row);
-
-
+            driversModel.m_macDataVector.addElement(d);
             List<Car> cars = new ArrayList<Car>();
             for(Car c : cars){
 //                if(d.id == c.getDriverId()){
@@ -54,6 +50,9 @@ public class MainWindow extends JFrame {
 //                }
             }
         }
+
+        tableDrivers.setModel(driversModel);
+        tableDrivers.repaint();
 
         addDriverButton.addActionListener(new ActionListener() {
             @Override
@@ -77,11 +76,25 @@ public class MainWindow extends JFrame {
         CarTableModel carModel = new CarTableModel(dummyMacData);
         tableCars = new JTable(carModel);
 
+
         Vector dummyDataDriver = new Vector(10, 10);
-        dummyDataDriver.addElement(new Driver("Jan", "Kowalski", new Integer(34), "Brak uwag"));
         DriverTableModel driverModel = new DriverTableModel(dummyDataDriver);
         tableDrivers = new JTable(driverModel);
+    }
 
-        tableDrivers.getColumnModel().getColumn(1).setHeaderValue("newHeader");
+    private void displayDrivers{
+        DriverTableModel driversModel = (DriverTableModel) tableDrivers.getModel();
+        driversModel.m_macDataVector.clear();
+        for(Driver d : drivers){
+            driversModel.m_macDataVector.addElement(d);
+//            List<Car> cars = new ArrayList<Car>();
+//            for(Car c : cars){
+//                if(d.id == c.getDriverId()){
+//                }
+//            }
+        }
+        tableDrivers.setModel(driversModel);
+        tableDrivers.repaint();
+
     }
 }
