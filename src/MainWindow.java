@@ -51,6 +51,8 @@ public class MainWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 addDriverForm = new AddDriverForm(MainWindow.this);
+                addDriverForm.setIsEditMode(false);
+                addDriverForm.setDriverToEdit(null);
             }
         });
 
@@ -60,6 +62,20 @@ public class MainWindow extends JFrame {
                 if (tableDrivers.getSelectedRow() > -1) {
                     int rowIndex = tableDrivers.getSelectedRow();
                     deleteDriver(rowIndex);
+                }
+            }
+        });
+
+        editDriverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (tableDrivers.getSelectedRow() > -1) {
+                    addDriverForm = new AddDriverForm(MainWindow.this);
+                    addDriverForm.setIsEditMode(true);
+                    Driver d = drivers.get(tableDrivers.getSelectedRow());
+                    System.out.print(  System.identityHashCode(d)+ "\n");
+                    addDriverForm.setDriverToEdit(d);
+                    addDriverForm.setValuesForEditMode();
                 }
             }
         });
@@ -115,13 +131,19 @@ public class MainWindow extends JFrame {
 //            }
         }
         tableDrivers.setModel(driversModel);
-        tableDrivers.repaint();
+        driversModel.fireTableDataChanged();
 
     }
 
     public void addDriver(Driver d){
-        //TODO: save "d"
         drivers.add(d);
+        displayDrivers();
+//        DriverTableModel tableModel = (DriverTableModel) tableCars.getModel();
+//        tableModel.fireTableDataChanged();
+    }
+
+    public void saveEditedDriver(Driver d){
+        System.out.print(System.identityHashCode(d)+ "\n");
         displayDrivers();
 //        DriverTableModel tableModel = (DriverTableModel) tableCars.getModel();
 //        tableModel.fireTableDataChanged();

@@ -1,3 +1,4 @@
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import domain.Driver;
 
 import javax.swing.*;
@@ -15,6 +16,12 @@ public class AddDriverForm extends JFrame {
     private JTextField textField4;
     private JButton dodajButton;
     private MainWindow mainWindow;
+    private Boolean isEditMode;
+    private Driver driverToEdit;
+
+    public void setIsEditMode(Boolean isEditMode) { this.isEditMode = isEditMode; }
+    public Driver getDriverToEdit() {  return driverToEdit;  }
+    public void setDriverToEdit(Driver driverToEdit) {  this.driverToEdit = driverToEdit; }
 
     public AddDriverForm(MainWindow mainW) {
         super("App");
@@ -24,13 +31,19 @@ public class AddDriverForm extends JFrame {
         setVisible(true);
         setSize(600, 300);
         this.mainWindow = mainW;
+
         dodajButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: validate fields, save data
+                //TODO: validate fields
                 try {
                     Driver driver = getDriverBasedOnInputData();
-                    mainWindow.addDriver(driver);
+                    if(isEditMode){
+                        System.out.print(  System.identityHashCode(driverToEdit) + "\n");
+                        mainWindow.saveEditedDriver(driverToEdit);
+                    }else{
+                        mainWindow.addDriver(driver);
+                    }
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -40,9 +53,10 @@ public class AddDriverForm extends JFrame {
     }
 
     public Driver getDriverBasedOnInputData() {
-        Driver d = new Driver();
+        Driver d = driverToEdit == null ? new Driver() : driverToEdit;
         d.setName(textField1.getText());
         d.setSurname(textField2.getText());
+        //TODO parse age
         d.setAge(23);
         //d.setAge(Integer.parseInt(textField3.getText()));
         d.setInfo(textField4.getText());
@@ -52,5 +66,15 @@ public class AddDriverForm extends JFrame {
 
     public void CloseFrame(){
         super.dispose();
+    }
+
+    public void setValuesForEditMode(){
+        if(driverToEdit!=null && isEditMode){
+            System.out.print(  System.identityHashCode(driverToEdit) + "\n");
+            textField1.setText(driverToEdit.getName());
+            textField2.setText(driverToEdit.getSurname());
+            textField3.setText("" + driverToEdit.getAge());
+            textField4.setText(driverToEdit.getInfo());
+        }
     }
 }

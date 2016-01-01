@@ -7,11 +7,12 @@ import java.util.List;
 
 public class Driver extends Model {
 
+    private List<Car> carList;
+
     public Driver() {
     }
 
     public Driver(String name, String surname, Integer age, String info, List<Car> cars) {
-
         setName(name);
         setSurname(surname);
         setAge(age);
@@ -47,15 +48,27 @@ public class Driver extends Model {
     public void setInfo(String info) { set("info", info); }
 
     public List<Car> getCars() {
-        Integer driverId = getInteger("id");
-        Car c = new Car();
-        List<Car> cars = c.where("id_driver = ?", driverId);
-        return cars;
+        if (carList == null) refresh();
+        return carList;
     }
 
     public void setCars(List<Car> cars) {
-        for(Car car : cars){
-        }
+        this.carList = cars;
     }
 
+    public void refresh() {
+        Integer driverId = getId();
+        this.carList = new Car().where("id_driver = ?", driverId);
+    }
+
+    /** Do uzycia przy zapisie do bazy po wczytaniu z pliku */
+    @Override
+    public boolean saveIt() {
+        if (carList != null) {
+            for (Car car : carList) {
+                car.saveIt();
+            }
+        }
+        return super.saveIt();
+    }
 }
