@@ -41,9 +41,10 @@ public class MainWindow extends JFrame {
 
         //import data from databse
         drivers = new Driver().where("id >= ?", 0);
-        cars = new Car().where("id >= ?, 0");
+        //cars = new Car().where("id >= ?, 0");
 
         //DISPLAY DATA
+        //TODO select programatically first row on app start
         displayDrivers();
 
         //LISTENERS TABLE DRIVERS
@@ -86,6 +87,9 @@ public class MainWindow extends JFrame {
                 if (tableDrivers.getSelectedRow() > -1) {
                     // print first column value from selected row
                     System.out.println(tableDrivers.getValueAt(tableDrivers.getSelectedRow(), 0).toString());
+                    Driver d = drivers.get(tableDrivers.getSelectedRow());
+                    d.refresh();
+                    displayCars(d);
                 }
             }
         });
@@ -107,7 +111,7 @@ public class MainWindow extends JFrame {
     private void createUIComponents() {
         // custom component creation code here
         Vector dummyMacData = new Vector(10, 10);
-        dummyMacData.addElement(new Car("Toyota", "Corolla", new Integer(2011), "398389", 1));
+        dummyMacData.addElement(new Car("Toyota", "Avensis", new Integer(2011), "398389", 1));
         CarTableModel carModel = new CarTableModel(dummyMacData);
         tableCars = new JTable(carModel);
 
@@ -117,22 +121,6 @@ public class MainWindow extends JFrame {
         tableDrivers = new JTable(driverModel);
         tableDrivers.setRowSelectionAllowed(true);
         tableDrivers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-    }
-
-    private void displayDrivers(){
-        DriverTableModel driversModel = (DriverTableModel) tableDrivers.getModel();
-        driversModel.m_macDataVector.clear();
-        for(Driver d : drivers){
-            driversModel.m_macDataVector.addElement(d);
-//            List<Car> cars = new ArrayList<Car>();
-//            for(Car c : cars){
-//                if(d.id == c.getDriverId()){
-//                }
-//            }
-        }
-        tableDrivers.setModel(driversModel);
-        driversModel.fireTableDataChanged();
-
     }
 
     public void addDriver(Driver d){
@@ -159,7 +147,29 @@ public class MainWindow extends JFrame {
     }
 
 
+    private void displayDrivers(){
+        DriverTableModel driversModel = (DriverTableModel) tableDrivers.getModel();
+        driversModel.m_macDataVector.clear();
+        for(Driver d : drivers){
+            driversModel.m_macDataVector.addElement(d);
+//            List<Car> cars = new ArrayList<Car>();
+//            for(Car c : cars){
+//                if(d.id == c.getDriverId()){
+//                }
+//            }
+        }
+        tableDrivers.setModel(driversModel);
+        driversModel.fireTableDataChanged();
+    }
 
+    private void displayCars(Driver d){
+        CarTableModel carsModel = (CarTableModel) tableCars.getModel();
+        carsModel.m_macDataVector.clear();
+        for(Car c : d.getCars()){
+            carsModel.m_macDataVector.addElement(c);
+        }
+        tableDrivers.setModel(carsModel);
+        carsModel.fireTableDataChanged();
 
-
+    }
 }
