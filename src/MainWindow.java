@@ -64,7 +64,8 @@ public class MainWindow extends JFrame {
         Vector dummyDataDriver = new Vector(10, 10);
         DriverTableModel driverModel = new DriverTableModel(dummyDataDriver);
         tableDrivers = new JTable(driverModel);
-        JTableHeader header =  tableDrivers.getTableHeader();
+        tableDrivers.setRowSelectionAllowed(true);
+        tableDrivers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
     private void displayDrivers(){
