@@ -38,22 +38,10 @@ public class MainWindow extends JFrame {
         drivers = new Driver().where("id >= ?", 0);
         cars = new Car().where("id >= ?, 0");
 
-        DriverTableModel driversModel = (DriverTableModel) tableDrivers.getModel();
-        driversModel.m_macDataVector.clear();
-        for(Driver d : drivers){
+        //DISPLAY DATA
+        displayDrivers();
 
-            driversModel.m_macDataVector.addElement(d);
-            List<Car> cars = new ArrayList<Car>();
-            for(Car c : cars){
-//                if(d.id == c.getDriverId()){
-//
-//                }
-            }
-        }
-
-        tableDrivers.setModel(driversModel);
-        tableDrivers.repaint();
-
+        //LISTENERS
         addDriverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,11 +50,6 @@ public class MainWindow extends JFrame {
         });
     }
 
-    public void addDriver(Driver d){
-        //TODO: save "d"
-        CarTableModel tableModel = (CarTableModel) tableCars.getModel();
-        tableModel.fireTableDataChanged();
-    }
 
 
     private void createUIComponents() {
@@ -82,7 +65,7 @@ public class MainWindow extends JFrame {
         tableDrivers = new JTable(driverModel);
     }
 
-    private void displayDrivers{
+    private void displayDrivers(){
         DriverTableModel driversModel = (DriverTableModel) tableDrivers.getModel();
         driversModel.m_macDataVector.clear();
         for(Driver d : drivers){
@@ -97,4 +80,15 @@ public class MainWindow extends JFrame {
         tableDrivers.repaint();
 
     }
+
+    public void addDriver(Driver d){
+        //TODO: save "d"
+        drivers.add(d);
+        displayDrivers();
+//        DriverTableModel tableModel = (DriverTableModel) tableCars.getModel();
+//        tableModel.fireTableDataChanged();
+    }
+
+
+
 }

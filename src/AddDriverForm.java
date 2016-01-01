@@ -28,7 +28,12 @@ public class AddDriverForm extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO: validate fields, save data
-                mainWindow.addDriver(getDriverBasedOnInputData());
+                try {
+                    Driver driver = getDriverBasedOnInputData();
+                    mainWindow.addDriver(driver);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
                 CloseFrame();
             }
         });
