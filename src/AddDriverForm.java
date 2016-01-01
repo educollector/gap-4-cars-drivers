@@ -18,9 +18,9 @@ public class AddDriverForm extends JFrame {
 
     public AddDriverForm(MainWindow mainW) {
         super("App");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         pack();
         setContentPane(rootPanel);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setSize(600, 300);
         this.mainWindow = mainW;
@@ -41,7 +41,7 @@ public class AddDriverForm extends JFrame {
         d.setAge(23);
         //d.setAge(Integer.parseInt(textField3.getText()));
         d.setInfo(textField4.getText());
-
+        d.saveIt();
         return d;
     }
 

@@ -1,0 +1,1 @@
+21:54:45	CREATE TABLE cars (   id int(11) NOT NULL auto_increment PRIMARY KEY,   brand VARCHAR(56) NOT NULL,   model VARCHAR(56),   year int(3),   vin VARCHAR(56),   id_driver int(11),   CONSTRAINT FK_CAR_DRIVER foreign key (id_driver) references DRIVER (id)   )	Error Code: 1215. Cannot add foreign key constraint	0.032 sec

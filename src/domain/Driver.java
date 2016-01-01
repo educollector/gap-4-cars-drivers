@@ -26,6 +26,10 @@ public class Driver extends Model {
         setInfo(info);
     }
 
+    public Integer getId() { return getInteger("id"); }
+
+    public void setId(Integer id) { set("id", id); }
+
     public String getName() { return getString("name"); }
 
     public void setName(String name) { set("name", name); }
@@ -51,7 +55,6 @@ public class Driver extends Model {
 
     public void setCars(List<Car> cars) {
         for(Car car : cars){
-            car.saveIt();
         }
     }
 

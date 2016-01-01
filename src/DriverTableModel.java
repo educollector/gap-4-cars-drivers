@@ -7,7 +7,7 @@ import javax.swing.table.AbstractTableModel;
 import java.util.Vector;
 
 public class DriverTableModel extends AbstractTableModel {
-    public String[] m_colNames = { "Imieę", "Nazwisko", "Wiek","Uwagi" };
+    public String[] m_colNames = { "Imię", "Nazwisko", "Wiek","Uwagi" };
     public Class[] m_colTypes = { String.class, String.class, Integer.class, String.class};
     Vector m_macDataVector;
 

@@ -33,7 +33,7 @@ public class CarTableModel extends AbstractTableModel {
                 macData.setBrand((String) value);
                 break;
             case 1:
-                macData.setBrand((String) value);
+                macData.setModel((String) value);
                 break;
             case 2:
                 macData.setYear((Integer) value);

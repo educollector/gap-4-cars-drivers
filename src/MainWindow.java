@@ -4,6 +4,8 @@ import domain.Driver;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -19,9 +21,10 @@ public class MainWindow extends JFrame {
     private JButton addDriverButton;
     private JButton deleteDriverButton;
     private JButton editDriverButton;
+    private List<Driver> drivers;
+    private List<Car> cars;
 
     private AddDriverForm addDriverForm;
-    private Driver tmpDriver;
 
     public MainWindow() {
         super("App");
@@ -30,6 +33,28 @@ public class MainWindow extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setSize(600, 600);
+
+        //import data from databse
+        drivers = new Driver().where("id >= ?", 0);
+        cars = new Car().where("id >= ?, 0");
+
+        for(Driver d : drivers){
+
+            Object[] row = {d.getName(), d.getSurname(), d.getAge(), d.getInfo()};
+
+            DriverTableModel model = (DriverTableModel) tableDrivers.getModel();
+
+            model.(row);
+
+
+            List<Car> cars = new ArrayList<Car>();
+            for(Car c : cars){
+//                if(d.id == c.getDriverId()){
+//
+//                }
+            }
+        }
+
         addDriverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -39,7 +64,9 @@ public class MainWindow extends JFrame {
     }
 
     public void addDriver(Driver d){
-
+        //TODO: save "d"
+        CarTableModel tableModel = (CarTableModel) tableCars.getModel();
+        tableModel.fireTableDataChanged();
     }
 
 
