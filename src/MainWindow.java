@@ -2,6 +2,8 @@ import domain.Car;
 import domain.Driver;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.JTableHeader;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,12 +18,14 @@ public class MainWindow extends JFrame {
     private JPanel rootPanel;
     private JTable tableDrivers;
     private JTable tableCars;
-    private JButton addCarButton;
-    private JButton deleteCarButton;
-    private JButton editCarButton;
+
     private JButton addDriverButton;
     private JButton deleteDriverButton;
     private JButton editDriverButton;
+
+    private JButton addCarButton;
+    private JButton deleteCarButton;
+    private JButton editCarButton;
     private List<Driver> drivers;
     private List<Car> cars;
 
@@ -42,11 +46,42 @@ public class MainWindow extends JFrame {
         //DISPLAY DATA
         displayDrivers();
 
-        //LISTENERS
+        //LISTENERS TABLE DRIVERS
         addDriverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 addDriverForm = new AddDriverForm(MainWindow.this);
+            }
+        });
+
+        deleteDriverButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (tableDrivers.getSelectedRow() > -1) {
+                    int rowIndex = tableDrivers.getSelectedRow();
+                    deleteDriver(rowIndex);
+                }
+            }
+        });
+
+        tableDrivers.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent event) {
+                if (tableDrivers.getSelectedRow() > -1) {
+                    // print first column value from selected row
+                    System.out.println(tableDrivers.getValueAt(tableDrivers.getSelectedRow(), 0).toString());
+                }
+            }
+        });
+
+        //LISTENER TABLE CARS
+        tableCars.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent event) {
+                if (tableCars.getSelectedRow() > -1) {
+                    // print first column value from selected row
+                    System.out.println(tableCars.getValueAt(tableCars.getSelectedRow(), 0).toString());
+                }
             }
         });
     }
@@ -87,6 +122,15 @@ public class MainWindow extends JFrame {
     public void addDriver(Driver d){
         //TODO: save "d"
         drivers.add(d);
+        displayDrivers();
+//        DriverTableModel tableModel = (DriverTableModel) tableCars.getModel();
+//        tableModel.fireTableDataChanged();
+    }
+
+    public void deleteDriver(int index){
+        //TODO: save change
+        Driver d = drivers.get(index);
+        drivers.remove(index);
         displayDrivers();
 //        DriverTableModel tableModel = (DriverTableModel) tableCars.getModel();
 //        tableModel.fireTableDataChanged();
