@@ -7,8 +7,8 @@ import javax.swing.table.AbstractTableModel;
 import java.util.Vector;
 
 public class DriverTableModel extends AbstractTableModel {
-    public String[] m_colNames = { "Imię", "Nazwisko", "Wiek","Uwagi" };
-    public Class[] m_colTypes = { String.class, String.class, Integer.class, String.class};
+    private static final String[] COLUMN_NAMES= { "Imię", "Nazwisko", "Wiek","Uwagi" };
+    private static final Class[] COLUMN_CLASSES = { String.class, String.class, Integer.class, String.class};
     Vector m_macDataVector;
 
     public DriverTableModel(Vector macDataVector) {
@@ -16,10 +16,12 @@ public class DriverTableModel extends AbstractTableModel {
         m_macDataVector = macDataVector;
     }
 
+    @Override
     public int getColumnCount() {
-        return m_colNames.length;
+        return COLUMN_NAMES.length;
     }
 
+    @Override
     public int getRowCount() {
         return m_macDataVector.size();
     }
@@ -43,13 +45,19 @@ public class DriverTableModel extends AbstractTableModel {
         }
     }
 
-    public String getColumnName(int col) {
-        return m_colNames[col];
+    //the column header
+    @Override
+    public String getColumnName(int column) {
+        return COLUMN_NAMES[column];
     }
 
-    public Class getColumnClass(int col) {
-        return m_colTypes[col];
+    //if you want to change the columns class
+    @Override
+    public Class<?> getColumnClass(int columnIndex) {
+        return COLUMN_CLASSES[columnIndex];
     }
+
+    @Override
     public Object getValueAt(int row, int col) {
         Driver macData = (Driver) (m_macDataVector.elementAt(row));
 

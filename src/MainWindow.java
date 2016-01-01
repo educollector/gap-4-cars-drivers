@@ -2,6 +2,7 @@ import domain.Car;
 import domain.Driver;
 
 import javax.swing.*;
+import javax.swing.table.JTableHeader;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -63,6 +64,7 @@ public class MainWindow extends JFrame {
         Vector dummyDataDriver = new Vector(10, 10);
         DriverTableModel driverModel = new DriverTableModel(dummyDataDriver);
         tableDrivers = new JTable(driverModel);
+        JTableHeader header =  tableDrivers.getTableHeader();
     }
 
     private void displayDrivers(){
@@ -88,6 +90,8 @@ public class MainWindow extends JFrame {
 //        DriverTableModel tableModel = (DriverTableModel) tableCars.getModel();
 //        tableModel.fireTableDataChanged();
     }
+
+
 
 
 
