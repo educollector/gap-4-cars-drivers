@@ -165,8 +165,8 @@ public class MainWindow extends JFrame {
         displayDrivers();
     }
 
-    public void saveEditedDriver(Driver d){
-        System.out.print(System.identityHashCode(d)+ "\n");
+    public void reloadDriversTable(Driver d){
+        //TODO zazanczyc row z driverem d, ktory byl edytowany
         displayDrivers();
     }
 
@@ -188,8 +188,12 @@ public class MainWindow extends JFrame {
         }
     }
 
-    public void saveEditedCar(Car c){
-
+    public void reloadCarsTable(Car c){
+        //TODO zazanczyc row z driverem d, ktory byl edytowany
+        if (tableDrivers.getSelectedRow() > -1) {
+            Driver d = drivers.get(tableDrivers.getSelectedRow()); //or get Driver from drivers wher id=id_driver from c
+            displayCars(d);
+        }
     }
 
     public void deleteCar(){

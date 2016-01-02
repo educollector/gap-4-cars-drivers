@@ -58,22 +58,20 @@ public class AddDriverForm extends JFrame {
 
                     if(isEditMode){
                         if(driverToEdit != null){
-                            getDriverBasedOnInputData(); // modifies driverToEdit
-                            System.out.print(  System.identityHashCode(driverToEdit) + "\n");
-                            mainWindow.saveEditedDriver(driverToEdit);
+                            makeAndSaveDriverBasedOnInputData(); // modifies driverToEdit
+                            mainWindow.reloadDriversTable(driverToEdit);
                         }
                         if(carToEdit != null){
-                            getCarBasedOnInputData(); // modifies carToEdit
-                            //TODO car edut method in main window
-                            //mainWindow.saveEditedCar(carToEdit);
+                            maekAndSaveCarBasedOnInputData(); // modifies carToEdit
+                            mainWindow.reloadCarsTable(carToEdit);
                         }
                     }else{
                         if(isDriverMode){
-                            Driver driver = getDriverBasedOnInputData();
+                            Driver driver = makeAndSaveDriverBasedOnInputData();
                             mainWindow.addDriver(driver);
                         }
                         if(!isDriverMode){
-                           Car car = getCarBasedOnInputData();
+                           Car car = maekAndSaveCarBasedOnInputData();
                             mainWindow.addCar(car);
                         }
 
@@ -86,7 +84,7 @@ public class AddDriverForm extends JFrame {
         });
     }
 
-    public Driver getDriverBasedOnInputData() {
+    public Driver makeAndSaveDriverBasedOnInputData() {
         Driver d = driverToEdit == null ? new Driver() : driverToEdit;
         d.setName(textField1.getText());
         d.setSurname(textField2.getText());
@@ -97,7 +95,7 @@ public class AddDriverForm extends JFrame {
         return d;
     }
 
-    public Car getCarBasedOnInputData() {
+    public Car maekAndSaveCarBasedOnInputData() {
         Car c = carToEdit == null ? new Car() : carToEdit;
         c.setBrand(textField1.getText());
         c.setModel(textField2.getText());
