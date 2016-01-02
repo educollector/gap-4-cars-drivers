@@ -1,3 +1,5 @@
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.Car;
 import domain.Driver;
 
@@ -7,6 +9,7 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.JTableHeader;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -45,6 +48,52 @@ public class MainWindow extends JFrame {
         //TODO select programatically first row on app start
         displayDrivers();
         clearCarsTable();
+
+
+        // JSON
+
+        try {
+
+            final StringWriter sw = new StringWriter();
+            final ObjectMapper mapper = MapperSingleton.get();
+            mapper.writeValue(sw, drivers);
+            System.out.println(sw.toString());//use toString() to convert to JSON
+
+            try (FileWriter file = new FileWriter("carsData.txt")) {
+                file.write(sw.toString());
+                System.out.println("Successfully Copied JSON Object to File...");
+            }
+
+
+//            final OutputStream out = new ByteArrayOutputStream();
+//            mapper.writeValue(out, drivers);
+
+//            final byte[] data = out.toByteArray();
+//            System.out.println(new String(data));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+//        try {
+//            ObjectMapper mapper = MapperSingleton.get();
+//            String json = mapper.writeValueAsString(car);
+//            System.out.println(json);
+//
+//            String carJson = "{\"year\":1233,\"model\":\"Toyota\",\"brand\":\"Supra\",\"vin\":null}";
+//            Car carFromJson = mapper.readValue(carJson, Car.class);
+//            System.out.println(carFromJson.toString());
+//        } catch (JsonProcessingException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+
 
         /** LISTENERS TABLE DRIVERS */
         addDriverButton.addActionListener(new ActionListener() {
@@ -122,7 +171,6 @@ public class MainWindow extends JFrame {
                 }else {
                     showAlertWithMessage("Wybierz kierowcę i samochód");
                 }
-
             }
         });
 
