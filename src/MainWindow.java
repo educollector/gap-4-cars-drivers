@@ -1,16 +1,9 @@
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import domain.Car;
 import domain.Driver;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
-import javax.swing.table.JTableHeader;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -130,14 +123,24 @@ public class MainWindow extends JFrame {
                 File file = fc.getSelectedFile();
                 //This is where a real application would open the file.
                 System.out.print("Wybrano plik do wczytania danych: " + file.getName() + "." + "\n");
-                readDataFromFile(file.getName().toString());
+                readDataFromFile(file.getAbsolutePath());
             } else {
                 System.out.print("Open command cancelled by user."  +  "\n");
             }
             displayDrivers();
         });
 
-        writeToFileButton.addActionListener(e -> saveDataToFile());
+        writeToFileButton.addActionListener(e -> {
+            final JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setDialogTitle("Wybierz plik");
+            int userSelection = fileChooser.showSaveDialog(MainWindow.this);
+
+            if (userSelection == JFileChooser.APPROVE_OPTION) {
+                File fileToSave = fileChooser.getSelectedFile();
+                System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+                saveDataToFile(fileToSave.getAbsolutePath());
+            }
+        });
 
         /** LISTENER TO THIS WINDOW*/
 
@@ -145,6 +148,7 @@ public class MainWindow extends JFrame {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
                 MainWindow.this.showAlertWithMessage("Aplikacja zostanie zamknięta a dane zapisane do pliku");
+                saveDataToFile("Data.txt");
             }
         });
     }
@@ -188,7 +192,7 @@ public class MainWindow extends JFrame {
     public void addCar(Car c){
         if (tableDrivers.getSelectedRow() > -1) {
             Driver d = drivers.get(tableDrivers.getSelectedRow());
-            c.setDriverId(d.getId());
+            c.setDriverId(d.getDriverId());
             c.save();
             d.getCars().add(c);
             displayCars(d);
@@ -257,33 +261,21 @@ public class MainWindow extends JFrame {
     }
 
     /** Saving and reading to file */
-    private void saveDataToFile(){
+    private void saveDataToFile(String filePath){
         final ObjectMapper mapper = MapperSingleton.get();
         try {
-            final StringWriter sw = new StringWriter();
-            mapper.writeValue(sw, drivers);
-            System.out.println(sw.toString());//use toString() to convert to JSON
-
-            try (FileWriter file = new FileWriter("Data.txt")) {
-                file.write(sw.toString());
-                System.out.println("Successfully Copied JSON Object to File...");
-                showAlertWithMessage("Zapisano dane");
-            }
-//            final OutputStream out = new ByteArrayOutputStream();
-//            mapper.writeValue(out, drivers);
-//            final byte[] data = out.toByteArray();
-//            System.out.println(new String(data));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            File file = new File(filePath);
+            if (!file.exists()) file.createNewFile();
+            mapper.writeValue(file, drivers);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private void readDataFromFile(String fileName){
+    private void readDataFromFile(String filePath){
         final ObjectMapper mapper = MapperSingleton.get();
         try{
-            String jsonString = readFile(fileName);
+            String jsonString = readFile(filePath);
             driversFromFile = mapper.readValue(jsonString, mapper.getTypeFactory().constructCollectionType(List.class, Driver.class));
             for (Driver d : driversFromFile) {
                 d.saveIt();
@@ -291,15 +283,13 @@ public class MainWindow extends JFrame {
             drivers.addAll(driversFromFile);
             showAlertWithMessage("Wczytano dane z pliku");
             System.out.println("Successfully read JSON Object from File...");
-        }catch (JsonProcessingException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    String readFile(String fileName) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(fileName));
+    String readFile(String filePath) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(filePath));
         try {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();

@@ -49,6 +49,7 @@ public class Car extends Model {
         set("vin", vin);
     }
 
+    @JsonIgnore
     public Integer getDriverId() {
         return getInteger("id_driver");
     }

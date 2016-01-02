@@ -28,9 +28,10 @@ public class Driver extends Model {
         setInfo(info);
     }
 
-    public Integer getId() { return getInteger("id"); }
+    @JsonIgnore
+    public Integer getDriverId() { return getInteger("id"); }
 
-    public void setId(Integer id) { set("id", id); }
+    public void setDriverId(Integer id) { set("id", id); }
 
     public String getName() { return getString("name"); }
 
@@ -60,7 +61,7 @@ public class Driver extends Model {
     }
 
     public void refresh() {
-        Integer driverId = getId();
+        Integer driverId = getDriverId();
         this.carList = new Car().where("id_driver = ?", driverId);
     }
 
@@ -68,7 +69,7 @@ public class Driver extends Model {
     @Override
     public boolean saveIt() {
         final boolean flgSaved = super.saveIt();
-        final int driverId = getId();
+        final int driverId = getDriverId();
         if (carList != null) {
             for (Car car : carList) {
                 car.setDriverId(driverId);
