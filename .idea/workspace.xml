@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a8afc25-4435-46bf-a8cf-c3fb32c3c285" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data.txt" afterPath="$PROJECT_DIR$/Data.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainWindow.form" afterPath="$PROJECT_DIR$/src/MainWindow.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainWindow.java" afterPath="$PROJECT_DIR$/src/MainWindow.java" />
     </list>
@@ -31,12 +32,12 @@
           <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3918742">
-                  <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+                <state vertical-scroll-proportion="0.56880736">
+                  <caret line="170" column="66" selection-start-line="170" selection-start-column="66" selection-end-line="170" selection-end-column="66" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#5406#5407#0" expanded="true" />
-                    <element signature="e#5449#5450#0" expanded="true" />
+                    <element signature="e#4989#4990#0" expanded="true" />
+                    <element signature="e#5032#5033#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -589,7 +590,7 @@
       <workItem from="1450042088393" duration="9837000" />
       <workItem from="1450294784290" duration="4798000" />
       <workItem from="1451466037779" duration="30000" />
-      <workItem from="1451667955017" duration="38246000" />
+      <workItem from="1451667955017" duration="39660000" />
     </task>
     <task id="LOCAL-00001" summary="Dziala: dodawanie samochodu. Nie dziala: odswiezanie okna po dodaniu samochodu">
       <created>1451729828571</created>
@@ -601,11 +602,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56591000" />
+    <option name="totallyTimeSpent" value="58005000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2467" y="-7" width="2362" height="1412" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -671,8 +672,8 @@
           <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5406#5407#0" expanded="true" />
-            <element signature="e#5449#5450#0" expanded="true" />
+            <element signature="e#4989#4990#0" expanded="true" />
+            <element signature="e#5032#5033#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -721,8 +722,8 @@
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5406#5407#0" expanded="true" />
-            <element signature="e#5449#5450#0" expanded="true" />
+            <element signature="e#4989#4990#0" expanded="true" />
+            <element signature="e#5032#5033#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -771,8 +772,8 @@
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5406#5407#0" expanded="true" />
-            <element signature="e#5449#5450#0" expanded="true" />
+            <element signature="e#4989#4990#0" expanded="true" />
+            <element signature="e#5032#5033#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -846,8 +847,8 @@
           <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5406#5407#0" expanded="true" />
-            <element signature="e#5449#5450#0" expanded="true" />
+            <element signature="e#4989#4990#0" expanded="true" />
+            <element signature="e#5032#5033#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1110,12 +1111,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3918742">
-          <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.56880736">
+          <caret line="170" column="66" selection-start-line="170" selection-start-column="66" selection-end-line="170" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5406#5407#0" expanded="true" />
-            <element signature="e#5449#5450#0" expanded="true" />
+            <element signature="e#4989#4990#0" expanded="true" />
+            <element signature="e#5032#5033#0" expanded="true" />
           </folding>
         </state>
       </provider>
