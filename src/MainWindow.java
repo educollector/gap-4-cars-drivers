@@ -52,129 +52,92 @@ public class MainWindow extends JFrame {
         clearCarsTable();
 
         /** LISTENERS TABLE DRIVERS */
-        addDriverButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        addDriverButton.addActionListener(e -> {
+            addDriverForm = new AddDriverForm(MainWindow.this);
+            addDriverForm.setIsDriverMode(true);
+            addDriverForm.setLabels();
+        });
+
+        deleteDriverButton.addActionListener(e -> {
+            if (tableDrivers.getSelectedRow() > -1) {
+                int rowIndex = tableDrivers.getSelectedRow();
+                deleteDriver(rowIndex);
+            }else{
+                showAlertWithMessage("Wybierz kierowcę");
+            }
+            clearCarsTable();
+        });
+
+        editDriverButton.addActionListener(e -> {
+            if (tableDrivers.getSelectedRow() > -1) {
                 addDriverForm = new AddDriverForm(MainWindow.this);
-                addDriverForm.setIsDriverMode(true);
+                Driver d = drivers.get(tableDrivers.getSelectedRow());
+                addDriverForm.setDriverToEdit(d); //set isEditMode=true,isDriverMode=true, set labels for editMode
                 addDriverForm.setLabels();
+            } else {
+                showAlertWithMessage("Wybierz kierowcę");
             }
         });
 
-        deleteDriverButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (tableDrivers.getSelectedRow() > -1) {
-                    int rowIndex = tableDrivers.getSelectedRow();
-                    deleteDriver(rowIndex);
-                }else{
-                    showAlertWithMessage("Wybierz kierowcę");
-                }
-                clearCarsTable();
-            }
-        });
-
-        editDriverButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (tableDrivers.getSelectedRow() > -1) {
-                    addDriverForm = new AddDriverForm(MainWindow.this);
-                    Driver d = drivers.get(tableDrivers.getSelectedRow());
-                    addDriverForm.setDriverToEdit(d); //set isEditMode=true,isDriverMode=true, set labels for editMode
-                    addDriverForm.setLabels();
-                } else {
-                    showAlertWithMessage("Wybierz kierowcę");
-                }
-            }
-        });
-
-        tableDrivers.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent event) {
-                if (tableDrivers.getSelectedRow() > -1) {
-                    // print first column value from selected row
-                    System.out.println(tableDrivers.getValueAt(tableDrivers.getSelectedRow(), 0).toString());
-                    Driver d = drivers.get(tableDrivers.getSelectedRow());
-                    displayCars(d);
-                }
+        tableDrivers.getSelectionModel().addListSelectionListener(event -> {
+            if (tableDrivers.getSelectedRow() > -1) {
+                // print first column value from selected row
+                System.out.println(tableDrivers.getValueAt(tableDrivers.getSelectedRow(), 0).toString());
+                Driver d = drivers.get(tableDrivers.getSelectedRow());
+                displayCars(d);
             }
         });
 
         /** LISTENER TABLE CARS */
-        addCarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (tableDrivers.getSelectedRow() > -1) {
-                    addDriverForm = new AddDriverForm(MainWindow.this);
-                    addDriverForm.setIsDriverMode(false);
-                    addDriverForm.setLabels();
-                }else {
-                    showAlertWithMessage("Wybierz kierowcę");
-                }
+        addCarButton.addActionListener(e -> {
+            if (tableDrivers.getSelectedRow() > -1) {
+                addDriverForm = new AddDriverForm(MainWindow.this);
+                addDriverForm.setIsDriverMode(false);
+                addDriverForm.setLabels();
+            }else {
+                showAlertWithMessage("Wybierz kierowcę");
             }
         });
 
-        editCarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if ((tableCars.getSelectedRow() > -1) && (tableDrivers.getSelectedRow() > -1)) {
-                    addDriverForm = new AddDriverForm(MainWindow.this);
-                    Driver d = drivers.get(tableDrivers.getSelectedRow());
-                    Car c = d.getCars().get(tableCars.getSelectedRow());
-                    addDriverForm.setCarToEdit(c); //set isEditMode=true,isDriverMode=false, set labels for editMode
-                    addDriverForm.setLabels();
-                }else {
-                    showAlertWithMessage("Wybierz kierowcę i samochód");
-                }
+        editCarButton.addActionListener(e -> {
+            if ((tableCars.getSelectedRow() > -1) && (tableDrivers.getSelectedRow() > -1)) {
+                addDriverForm = new AddDriverForm(MainWindow.this);
+                Driver d = drivers.get(tableDrivers.getSelectedRow());
+                Car c = d.getCars().get(tableCars.getSelectedRow());
+                addDriverForm.setCarToEdit(c); //set isEditMode=true,isDriverMode=false, set labels for editMode
+                addDriverForm.setLabels();
+            }else {
+                showAlertWithMessage("Wybierz kierowcę i samochód");
             }
         });
 
-        deleteCarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                deleteCar();
-            }
-        });
+        deleteCarButton.addActionListener(e -> deleteCar());
 
-        tableCars.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent event) {
-                if (tableCars.getSelectedRow() > -1) {
-                    // print first column value from selected row
-                    System.out.println(tableCars.getValueAt(tableCars.getSelectedRow(), 0).toString());
-                }
+        tableCars.getSelectionModel().addListSelectionListener(event -> {
+            if (tableCars.getSelectedRow() > -1) {
+                // print first column value from selected row
+                System.out.println(tableCars.getValueAt(tableCars.getSelectedRow(), 0).toString());
             }
         });
 
         /** LISTENER FILE OPERATIONS' BUTTONS */
-        readFileButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //Create a file chooser
-                final JFileChooser fc = new JFileChooser();
-                int returnVal = fc.showOpenDialog(MainWindow.this);
+        readFileButton.addActionListener(e -> {
+            //Create a file chooser
+            final JFileChooser fc = new JFileChooser();
+            int returnVal = fc.showOpenDialog(MainWindow.this);
 
-                if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    File file = fc.getSelectedFile();
-                    //This is where a real application would open the file.
-                    System.out.print("Wybrano plik do wczytania danych: " + file.getName() + "." + "\n");
-                    readDataFromFile(file.getName().toString());
-                } else {
-                    System.out.print("Open command cancelled by user."  +  "\n");
-                }
-
-
-                displayDrivers();
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = fc.getSelectedFile();
+                //This is where a real application would open the file.
+                System.out.print("Wybrano plik do wczytania danych: " + file.getName() + "." + "\n");
+                readDataFromFile(file.getName().toString());
+            } else {
+                System.out.print("Open command cancelled by user."  +  "\n");
             }
+            displayDrivers();
         });
 
-        writeToFileButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                saveDataToFile();
-            }
-        });
+        writeToFileButton.addActionListener(e -> saveDataToFile());
 
         /** LISTENER TO THIS WINDOW*/
 
