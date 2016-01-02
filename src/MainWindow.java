@@ -51,15 +51,14 @@ public class MainWindow extends JFrame {
 
 
         // JSON
-
+        final ObjectMapper mapper = MapperSingleton.get();
         try {
 
             final StringWriter sw = new StringWriter();
-            final ObjectMapper mapper = MapperSingleton.get();
             mapper.writeValue(sw, drivers);
             System.out.println(sw.toString());//use toString() to convert to JSON
 
-            try (FileWriter file = new FileWriter("carsData.txt")) {
+            try (FileWriter file = new FileWriter("Data.txt")) {
                 file.write(sw.toString());
                 System.out.println("Successfully Copied JSON Object to File...");
             }
@@ -75,6 +74,19 @@ public class MainWindow extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //read from file
+        try{
+            String jsonString = readFile("Data.txt");
+            List<Driver>driversFromFile = mapper.readValue(jsonString, mapper.getTypeFactory().constructCollectionType(List.class, Driver.class));
+            Driver d = driversFromFile.get(1);
+            System.out.println("Successfully read JSON Object from File...");
+        }catch (JsonProcessingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
 
 
@@ -192,6 +204,23 @@ public class MainWindow extends JFrame {
         });
     }
 
+    String readFile(String fileName) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append("\n");
+                line = br.readLine();
+            }
+            return sb.toString();
+        } finally {
+            br.close();
+        }
+    }
+
     private void createUIComponents() {
         // custom component creation code here
         Vector dummyMacData = new Vector(10, 10);
@@ -229,7 +258,7 @@ public class MainWindow extends JFrame {
     public void addCar(Car c){
         if (tableDrivers.getSelectedRow() > -1) {
             Driver d = drivers.get(tableDrivers.getSelectedRow());
-            c.setDriverID(d.getId());
+            c.setDriverId(d.getId());
             c.save();
             d.getCars().add(c);
             displayCars(d);

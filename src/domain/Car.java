@@ -15,7 +15,7 @@ public class Car extends Model {
         setModel(model);
         setYear(year);
         setVin(vin);
-        setDriverID(driverId);
+        setDriverId(driverId);
     }
 
     public String getBrand() {
@@ -52,7 +52,7 @@ public class Car extends Model {
         return getInteger("id_driver");
     }
 
-    public void setDriverID(Integer driverId) {
+    public void setDriverId(Integer driverId) {
         set("id_driver", driverId);
     }
 }
