@@ -62,6 +62,7 @@ public class Driver extends Model {
     }
 
     /** Do uzycia przy zapisie do bazy po wczytaniu z pliku */
+    //TODO why saveIt() instead of save()?
     @Override
     public boolean saveIt() {
         if (carList != null) {
@@ -70,5 +71,15 @@ public class Driver extends Model {
             }
         }
         return super.saveIt();
+    }
+
+    @Override
+    public boolean delete() {
+        if (carList != null) {
+            for (Car car : carList) {
+                car.delete();
+            }
+        }
+        return super.delete();
     }
 }

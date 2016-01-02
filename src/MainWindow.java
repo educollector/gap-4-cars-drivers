@@ -46,6 +46,7 @@ public class MainWindow extends JFrame {
         //DISPLAY DATA
         //TODO select programatically first row on app start
         displayDrivers();
+        clearCarsTable();
 
         //LISTENERS TABLE DRIVERS
         addDriverButton.addActionListener(new ActionListener() {
@@ -64,6 +65,7 @@ public class MainWindow extends JFrame {
                     int rowIndex = tableDrivers.getSelectedRow();
                     deleteDriver(rowIndex);
                 }
+                clearCarsTable();
             }
         });
 
@@ -106,8 +108,6 @@ public class MainWindow extends JFrame {
         });
     }
 
-
-
     private void createUIComponents() {
         // custom component creation code here
         Vector dummyMacData = new Vector(10, 10);
@@ -138,9 +138,9 @@ public class MainWindow extends JFrame {
     }
 
     public void deleteDriver(int index){
-        //TODO: save change
         Driver d = drivers.get(index);
         drivers.remove(index);
+        d.delete();//TODO: save change
         displayDrivers();
 //        DriverTableModel tableModel = (DriverTableModel) tableCars.getModel();
 //        tableModel.fireTableDataChanged();
@@ -168,7 +168,15 @@ public class MainWindow extends JFrame {
         for(Car c : d.getCars()){
             carsModel.m_macDataVector.addElement(c);
         }
-        tableDrivers.setModel(carsModel);
+        tableCars.setModel(carsModel);
+        carsModel.fireTableDataChanged();
+
+    }
+
+    private void clearCarsTable(){
+        CarTableModel carsModel = (CarTableModel) tableCars.getModel();
+        carsModel.m_macDataVector.clear();
+        tableCars.setModel(carsModel);
         carsModel.fireTableDataChanged();
 
     }
