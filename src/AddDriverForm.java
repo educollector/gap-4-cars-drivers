@@ -53,7 +53,10 @@ public class AddDriverForm extends JFrame {
         dodajButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: validate fields
+                if(!validateFields()){
+                    showAlertWithMessage("Uzupełnij wszystkie pola");
+                    return;
+                }
                 try {
 
                     if(isEditMode){
@@ -106,6 +109,15 @@ public class AddDriverForm extends JFrame {
         return c;
     }
 
+    public boolean validateFields(){
+        String test = textField1.getText();
+        if(textField1.getText().equals("") && textField1.getText().equals("") && textField1.getText().equals("") && textField1.getText().equals("")){
+            return false;
+        }else{
+            return true;
+        }
+
+    }
     public void CloseFrame(){
         super.dispose();
     }
@@ -143,5 +155,18 @@ public class AddDriverForm extends JFrame {
         surnameOrModel.paintImmediately(surnameOrModel.getVisibleRect());
         ageOrYear.paintImmediately(ageOrYear.getVisibleRect());
         infoOrVim.paintImmediately(infoOrVim.getVisibleRect());
+    }
+
+    private void showAlertWithMessage(String message){
+        String[] options = {"OK"};
+        JPanel panel = new JPanel();
+        JLabel lbl = new JLabel(message);
+        panel.add(lbl);
+        JOptionPane.showOptionDialog(null,
+                panel,
+                "Informacja",
+                JOptionPane.NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null, options , options[0]);
     }
 }
