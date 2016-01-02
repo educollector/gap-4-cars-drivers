@@ -51,9 +51,8 @@ public class MainWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 addDriverForm = new AddDriverForm(MainWindow.this);
-                addDriverForm.setIsEditMode(false);
-                addDriverForm.setDriverToEdit(null);
                 addDriverForm.setIsDriverMode(true);
+                addDriverForm.setLabels();
             }
         });
 
@@ -63,6 +62,8 @@ public class MainWindow extends JFrame {
                 if (tableDrivers.getSelectedRow() > -1) {
                     int rowIndex = tableDrivers.getSelectedRow();
                     deleteDriver(rowIndex);
+                }else{
+                    showAlertWithMessage("Wybierz kierowcę i samochód");
                 }
                 clearCarsTable();
             }
@@ -73,13 +74,11 @@ public class MainWindow extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (tableDrivers.getSelectedRow() > -1) {
                     addDriverForm = new AddDriverForm(MainWindow.this);
-                    addDriverForm.setIsEditMode(true);
-                    addDriverForm.setIsDriverMode(true);
                     Driver d = drivers.get(tableDrivers.getSelectedRow());
-                    System.out.print(  System.identityHashCode(d)+ "\n");
-                    addDriverForm.setDriverToEdit(d);
-                    addDriverForm.setValuesForEditMode();
+                    addDriverForm.setDriverToEdit(d); //set isEditMode=true,isDriverMode=true, set labels for editMode
                     addDriverForm.setLabels();
+                } else {
+                    showAlertWithMessage("Wybierz kierowcę");
                 }
             }
         });
@@ -101,11 +100,29 @@ public class MainWindow extends JFrame {
         addCarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                addDriverForm = new AddDriverForm(MainWindow.this);
-                addDriverForm.setIsEditMode(false);
-                addDriverForm.setCarToEdit(null);
-                addDriverForm.setIsCarMode(true);
-                addDriverForm.setLabels();
+                if (tableDrivers.getSelectedRow() > -1) {
+                    addDriverForm = new AddDriverForm(MainWindow.this);
+                    addDriverForm.setIsDriverMode(false);
+                    addDriverForm.setLabels();
+                }else {
+                    showAlertWithMessage("Wybierz kierowcę");
+                }
+            }
+        });
+
+        editCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if ((tableCars.getSelectedRow() > -1) && (tableDrivers.getSelectedRow() > -1)) {
+                    addDriverForm = new AddDriverForm(MainWindow.this);
+                    Driver d = drivers.get(tableDrivers.getSelectedRow());
+                    Car c = d.getCars().get(tableCars.getSelectedRow());
+                    addDriverForm.setCarToEdit(c); //set isEditMode=true,isDriverMode=false, set labels for editMode
+                    addDriverForm.setLabels();
+                }else {
+                    showAlertWithMessage("Wybierz kierowcę i samochód");
+                }
+
             }
         });
 
@@ -182,6 +199,8 @@ public class MainWindow extends JFrame {
             c.delete(); //delete from db
             d.getCars().remove(c); //remove c from local drivers list - is it necessary?
             displayCars(d);
+        }else {
+            showAlertWithMessage("Wybierz kierowcę i samochód");
         }
     }
 
@@ -213,5 +232,18 @@ public class MainWindow extends JFrame {
         tableCars.setModel(carsModel);
         carsModel.fireTableDataChanged();
 
+    }
+
+    private void showAlertWithMessage(String message){
+        String[] options = {"OK"};
+        JPanel panel = new JPanel();
+        JLabel lbl = new JLabel(message);
+        panel.add(lbl);
+        JOptionPane.showOptionDialog(null,
+                panel,
+                "Informacja",
+                JOptionPane.NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null, options , options[0]);
     }
 }
