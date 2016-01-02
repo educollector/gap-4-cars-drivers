@@ -27,7 +27,6 @@ public class MainWindow extends JFrame {
     private JButton deleteCarButton;
     private JButton editCarButton;
     private List<Driver> drivers;
-    private List<Car> cars;
 
     private AddDriverForm addDriverForm;
 
@@ -39,22 +38,22 @@ public class MainWindow extends JFrame {
         setVisible(true);
         setSize(600, 600);
 
-        //import data from databse
+        /** Import data from data base */
         drivers = new Driver().where("id >= ?", 0);
-        //cars = new Car().where("id >= ?, 0");
 
-        //DISPLAY DATA
+        /** Displaying data */
         //TODO select programatically first row on app start
         displayDrivers();
         clearCarsTable();
 
-        //LISTENERS TABLE DRIVERS
+        /** LISTENERS TABLE DRIVERS */
         addDriverButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 addDriverForm = new AddDriverForm(MainWindow.this);
                 addDriverForm.setIsEditMode(false);
                 addDriverForm.setDriverToEdit(null);
+                addDriverForm.setIsDriverMode(true);
             }
         });
 
@@ -75,6 +74,7 @@ public class MainWindow extends JFrame {
                 if (tableDrivers.getSelectedRow() > -1) {
                     addDriverForm = new AddDriverForm(MainWindow.this);
                     addDriverForm.setIsEditMode(true);
+                    addDriverForm.setIsDriverMode(true);
                     Driver d = drivers.get(tableDrivers.getSelectedRow());
                     System.out.print(  System.identityHashCode(d)+ "\n");
                     addDriverForm.setDriverToEdit(d);
@@ -96,7 +96,30 @@ public class MainWindow extends JFrame {
             }
         });
 
-        //LISTENER TABLE CARS
+        /** LISTENER TABLE CARS */
+        addCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                addDriverForm = new AddDriverForm(MainWindow.this);
+                addDriverForm.setIsEditMode(false);
+                addDriverForm.setCarToEdit(null);
+                addDriverForm.setIsCarMode(true);
+            }
+        });
+
+        deleteCarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if ((tableDrivers.getSelectedRow() > -1) && (tableCars.getSelectedRow() > -1)) {
+                    Driver d = drivers.get(tableDrivers.getSelectedRow());
+                    Car c = d.getCars().get(tableCars.getSelectedRow());
+                    c.delete(); //delete from db
+                    d.getCars().remove(c); //remove c from local drivers list - is it necessary?
+                    displayCars(d);
+                }
+            }
+        });
+
         tableCars.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent event) {
@@ -123,6 +146,7 @@ public class MainWindow extends JFrame {
         tableDrivers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
     }
 
+    /** Driver CRUD methods */
     public void addDriver(Driver d){
         drivers.add(d);
         displayDrivers();
@@ -140,7 +164,17 @@ public class MainWindow extends JFrame {
         displayDrivers();
     }
 
+    /** Car CRUD methods */
+    public void addCar(Car c){
+        if (tableDrivers.getSelectedRow() > -1) {
+            Driver d = drivers.get(tableDrivers.getSelectedRow());
+            c.setDriverID(d.getId());
+            c.save();
+            displayCars(d);
+        }
+    }
 
+    /** Display data methods */
     private void displayDrivers(){
         DriverTableModel driversModel = (DriverTableModel) tableDrivers.getModel();
         driversModel.m_macDataVector.clear();

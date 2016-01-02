@@ -12,7 +12,7 @@
     </properties>
     <border type="none" title="Dodawanie kierowcy:"/>
     <children>
-      <component id="3e7dc" class="javax.swing.JLabel">
+      <component id="3e7dc" class="javax.swing.JLabel" binding="nameOrBrand">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -28,7 +28,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="ac97a" class="javax.swing.JLabel">
+      <component id="ac97a" class="javax.swing.JLabel" binding="surnameOrModel">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -36,7 +36,7 @@
           <text value="Nazwisko"/>
         </properties>
       </component>
-      <component id="5b49c" class="javax.swing.JLabel">
+      <component id="5b49c" class="javax.swing.JLabel" binding="ageOrYear">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -44,7 +44,7 @@
           <text value="Wiek"/>
         </properties>
       </component>
-      <component id="1cc6d" class="javax.swing.JLabel">
+      <component id="1cc6d" class="javax.swing.JLabel" binding="infoOrVim">
         <constraints>
           <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>

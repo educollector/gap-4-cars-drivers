@@ -1,4 +1,5 @@
 import com.sun.org.apache.xpath.internal.operations.Bool;
+import domain.Car;
 import domain.Driver;
 
 import javax.swing.*;
@@ -15,13 +16,25 @@ public class AddDriverForm extends JFrame {
     private JTextField textField3;
     private JTextField textField4;
     private JButton dodajButton;
+    private JLabel nameOrBrand;
+    private JLabel surnameOrModel;
+    private JLabel ageOrYear;
+    private JLabel infoOrVim;
     private MainWindow mainWindow;
-    private Boolean isEditMode;
-    private Driver driverToEdit;
 
+    private boolean isDriverMode;
+    private boolean isCarMode;
+    private boolean isEditMode;
+    private Driver driverToEdit;
+    private Car carToEdit;
+
+    public void setIsDriverMode(Boolean isDriverMode) { this.isDriverMode = isDriverMode; }
+    public void setIsCarMode(Boolean isCarMode) {
+        this.isCarMode = isCarMode;
+    }
     public void setIsEditMode(Boolean isEditMode) { this.isEditMode = isEditMode; }
-    public Driver getDriverToEdit() {  return driverToEdit;  }
     public void setDriverToEdit(Driver driverToEdit) {  this.driverToEdit = driverToEdit; }
+    public void setCarToEdit(Driver driverToEdit) {  this.carToEdit = carToEdit; }
 
     public AddDriverForm(MainWindow mainW) {
         super("App");
@@ -32,17 +45,45 @@ public class AddDriverForm extends JFrame {
         setSize(600, 300);
         this.mainWindow = mainW;
 
+        //labels
+        if(isDriverMode){
+            nameOrBrand.setText("Imię");
+            surnameOrModel.setText("Nazwisko");
+            ageOrYear.setText("Wiek");
+            infoOrVim.setText("Uwagi");
+        }
+        if(isCarMode){
+            nameOrBrand.setText("Marka");
+            surnameOrModel.setText("Model");
+            ageOrYear.setText("Rok produkcji");
+            infoOrVim.setText("VIN");
+        }
+
         dodajButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //TODO: validate fields
                 try {
-                    Driver driver = getDriverBasedOnInputData();
+
                     if(isEditMode){
-                        System.out.print(  System.identityHashCode(driverToEdit) + "\n");
-                        mainWindow.saveEditedDriver(driverToEdit);
+                        if(driverToEdit != null){
+                            System.out.print(  System.identityHashCode(driverToEdit) + "\n");
+                            mainWindow.saveEditedDriver(driverToEdit);
+                        }
+                        if(carToEdit != null){
+                            //TODO car edut method in main window
+                            //mainWindow.saveEditedCar(carToEdit);
+                        }
                     }else{
-                        mainWindow.addDriver(driver);
+                        if(isDriverMode){
+                            Driver driver = getDriverBasedOnInputData();
+                            mainWindow.addDriver(driver);
+                        }
+                        if(isCarMode){
+                           Car car = getCarBasedOnInputData();
+                            mainWindow.addCar(car);
+                        }
+
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -58,10 +99,20 @@ public class AddDriverForm extends JFrame {
         d.setSurname(textField2.getText());
         //TODO parse age
         d.setAge(23);
-        //d.setAge(Integer.parseInt(textField3.getText()));
         d.setInfo(textField4.getText());
         d.saveIt();
         return d;
+    }
+
+    public Car getCarBasedOnInputData() {
+        Car c = carToEdit == null ? new Car() : carToEdit;
+        c.setBrand(textField1.getText());
+        c.setModel(textField2.getText());
+        //TODO parse year
+        c.setYear(1999);
+        c.setVin(textField4.getText());
+        c.saveIt();
+        return c;
     }
 
     public void CloseFrame(){
