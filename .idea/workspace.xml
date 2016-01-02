@@ -2,6 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a8afc25-4435-46bf-a8cf-c3fb32c3c285" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gap4pojazdy/AddDriverForm$1.class" afterPath="$PROJECT_DIR$/out/production/gap4pojazdy/AddDriverForm$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gap4pojazdy/AddDriverForm.class" afterPath="$PROJECT_DIR$/out/production/gap4pojazdy/AddDriverForm.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gap4pojazdy/MainWindow$1.class" afterPath="$PROJECT_DIR$/out/production/gap4pojazdy/MainWindow$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gap4pojazdy/MainWindow$2.class" afterPath="$PROJECT_DIR$/out/production/gap4pojazdy/MainWindow$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gap4pojazdy/MainWindow$3.class" afterPath="$PROJECT_DIR$/out/production/gap4pojazdy/MainWindow$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gap4pojazdy/MainWindow$5.class" afterPath="$PROJECT_DIR$/out/production/gap4pojazdy/MainWindow$5.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/gap4pojazdy/MainWindow.class" afterPath="$PROJECT_DIR$/out/production/gap4pojazdy/MainWindow.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AddDriverForm.form" afterPath="$PROJECT_DIR$/src/AddDriverForm.form" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AddDriverForm.java" afterPath="$PROJECT_DIR$/src/AddDriverForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainWindow.java" afterPath="$PROJECT_DIR$/src/MainWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -28,13 +37,15 @@
     <splitter split-orientation="horizontal" split-proportion="0.49975285">
       <split-first>
         <leaf>
-          <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.5177112">
-                  <caret line="147" column="55" selection-start-line="147" selection-start-column="55" selection-end-line="147" selection-end-column="55" />
+                <state vertical-scroll-proportion="-5.5185184">
+                  <caret line="80" column="44" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
                   <folding>
                     <element signature="imports" expanded="true" />
+                    <element signature="e#4066#4067#0" expanded="true" />
+                    <element signature="e#4109#4110#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -44,11 +55,25 @@
             <entry file="file://$PROJECT_DIR$/src/AddDriverForm.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
+                  <caret line="107" column="16" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="16" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
                 </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MainWindow.form" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/MainWindow.form">
+              <provider selected="true" editor-type-id="ui-designer">
+                <state />
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="AddDriverForm.form" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/AddDriverForm.form">
+              <provider selected="true" editor-type-id="ui-designer">
+                <state />
               </provider>
             </entry>
           </file>
@@ -59,8 +84,8 @@
           <file leaf-file-name="Driver.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/domain/Driver.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.4645569">
-                  <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
+                <state vertical-scroll-proportion="0.19240506">
+                  <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#1375#1376#0" expanded="true" />
@@ -159,7 +184,6 @@
         <option value="$PROJECT_DIR$/src/mainTable.form" />
         <option value="$PROJECT_DIR$/src/mainTable.java" />
         <option value="$PROJECT_DIR$/src/Vehicle.java" />
-        <option value="$PROJECT_DIR$/src/AddDriverForm.form" />
         <option value="$PROJECT_DIR$/src/Car.java" />
         <option value="$PROJECT_DIR$/src/Driver.java" />
         <option value="$PROJECT_DIR$/src/model/Driver.java" />
@@ -170,9 +194,10 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/DriverTableModel.java" />
         <option value="$PROJECT_DIR$/src/MainWindow.form" />
-        <option value="$PROJECT_DIR$/src/AddDriverForm.java" />
         <option value="$PROJECT_DIR$/src/domain/Driver.java" />
+        <option value="$PROJECT_DIR$/src/AddDriverForm.java" />
         <option value="$PROJECT_DIR$/src/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/AddDriverForm.form" />
       </list>
     </option>
   </component>
@@ -252,24 +277,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MainWindow" />
-              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gap4pojazdy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gap4pojazdy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AddDriverForm" />
               <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -555,12 +562,19 @@
       <workItem from="1450042088393" duration="9837000" />
       <workItem from="1450294784290" duration="4798000" />
       <workItem from="1451466037779" duration="30000" />
-      <workItem from="1451667955017" duration="17378000" />
+      <workItem from="1451667955017" duration="22885000" />
     </task>
+    <task id="LOCAL-00001" summary="Dziala: dodawanie samochodu. Nie dziala: odswiezanie okna po dodaniu samochodu">
+      <created>1451729828571</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1451729828571</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35723000" />
+    <option name="totallyTimeSpent" value="41230000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2467" y="-7" width="2362" height="1412" extended-state="0" />
@@ -584,7 +598,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12801725" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28636363" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17348485" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -603,25 +617,48 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
+    <MESSAGE value="Dziala: dodawanie samochodu. Nie dziala: odswiezanie okna po dodaniu samochodu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dziala: dodawanie samochodu. Nie dziala: odswiezanie okna po dodaniu samochodu" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/AddDriverForm.java</url>
-          <line>47</line>
+          <line>74</line>
           <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/AddDriverForm.java</url>
+          <line>51</line>
+          <properties />
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/AddDriverForm.java</url>
+          <line>49</line>
+          <properties />
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MainWindow.java</url>
+          <line>106</line>
+          <properties />
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/AddDriverForm.java</url>
+          <line>38</line>
+          <properties />
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="35" />
+      <option name="time" value="47" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="carFromJson" language="JAVA" custom="" />
-        <watch expression="drivers" language="JAVA" custom="" />
-        <watch expression="ex" language="JAVA" custom="" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -634,6 +671,8 @@
           <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4066#4067#0" expanded="true" />
+            <element signature="e#4109#4110#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -682,6 +721,8 @@
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4066#4067#0" expanded="true" />
+            <element signature="e#4109#4110#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -730,6 +771,8 @@
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4066#4067#0" expanded="true" />
+            <element signature="e#4109#4110#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -803,6 +846,8 @@
           <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4066#4067#0" expanded="true" />
+            <element signature="e#4109#4110#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -939,11 +984,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainWindow.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/src.zip!/javax/swing/table/AbstractTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -982,33 +1022,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AddDriverForm.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/activejdbc-1.4.20-sources.jar!/org/javalite/activejdbc/AbstractLazyList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23359074">
           <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AddDriverForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="39" selection-start-line="70" selection-start-column="39" selection-end-line="70" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/Car.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1021,10 +1038,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4645569">
-          <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.19240506">
+          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1375#1376#0" expanded="true" />
@@ -1033,14 +1058,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/src.zip!/java/awt/event/ActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5177112">
-          <caret line="147" column="55" selection-start-line="147" selection-start-column="55" selection-end-line="147" selection-end-column="55" />
+        <state vertical-scroll-proportion="-5.5185184">
+          <caret line="80" column="44" selection-start-line="80" selection-start-column="44" selection-end-line="80" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4066#4067#0" expanded="true" />
+            <element signature="e#4109#4110#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AddDriverForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="107" column="16" selection-start-line="107" selection-start-column="16" selection-end-line="107" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainWindow.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AddDriverForm.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
       </provider>
     </entry>
   </component>

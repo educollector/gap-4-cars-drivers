@@ -79,6 +79,7 @@ public class MainWindow extends JFrame {
                     System.out.print(  System.identityHashCode(d)+ "\n");
                     addDriverForm.setDriverToEdit(d);
                     addDriverForm.setValuesForEditMode();
+                    addDriverForm.setLabels();
                 }
             }
         });
@@ -104,19 +105,14 @@ public class MainWindow extends JFrame {
                 addDriverForm.setIsEditMode(false);
                 addDriverForm.setCarToEdit(null);
                 addDriverForm.setIsCarMode(true);
+                addDriverForm.setLabels();
             }
         });
 
         deleteCarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if ((tableDrivers.getSelectedRow() > -1) && (tableCars.getSelectedRow() > -1)) {
-                    Driver d = drivers.get(tableDrivers.getSelectedRow());
-                    Car c = d.getCars().get(tableCars.getSelectedRow());
-                    c.delete(); //delete from db
-                    d.getCars().remove(c); //remove c from local drivers list - is it necessary?
-                    displayCars(d);
-                }
+                deleteCar();
             }
         });
 
@@ -134,9 +130,9 @@ public class MainWindow extends JFrame {
     private void createUIComponents() {
         // custom component creation code here
         Vector dummyMacData = new Vector(10, 10);
-        dummyMacData.addElement(new Car("Toyota", "Avensis", new Integer(2011), "398389", 1));
         CarTableModel carModel = new CarTableModel(dummyMacData);
         tableCars = new JTable(carModel);
+        tableCars.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 
         Vector dummyDataDriver = new Vector(10, 10);
@@ -160,7 +156,7 @@ public class MainWindow extends JFrame {
     public void deleteDriver(int index){
         Driver d = drivers.get(index);
         drivers.remove(index);
-        d.delete();//TODO: save change
+        d.delete();
         displayDrivers();
     }
 
@@ -170,6 +166,21 @@ public class MainWindow extends JFrame {
             Driver d = drivers.get(tableDrivers.getSelectedRow());
             c.setDriverID(d.getId());
             c.save();
+            d.getCars().add(c);
+            displayCars(d);
+        }
+    }
+
+    public void saveEditedCar(Car c){
+
+    }
+
+    public void deleteCar(){
+        if ((tableDrivers.getSelectedRow() > -1) && (tableCars.getSelectedRow() > -1)) {
+            Driver d = drivers.get(tableDrivers.getSelectedRow());
+            Car c = d.getCars().get(tableCars.getSelectedRow());
+            c.delete(); //delete from db
+            d.getCars().remove(c); //remove c from local drivers list - is it necessary?
             displayCars(d);
         }
     }

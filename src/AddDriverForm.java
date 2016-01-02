@@ -29,9 +29,7 @@ public class AddDriverForm extends JFrame {
     private Car carToEdit;
 
     public void setIsDriverMode(Boolean isDriverMode) { this.isDriverMode = isDriverMode; }
-    public void setIsCarMode(Boolean isCarMode) {
-        this.isCarMode = isCarMode;
-    }
+    public void setIsCarMode(Boolean isCarMode) {  this.isCarMode = isCarMode; }
     public void setIsEditMode(Boolean isEditMode) { this.isEditMode = isEditMode; }
     public void setDriverToEdit(Driver driverToEdit) {  this.driverToEdit = driverToEdit; }
     public void setCarToEdit(Driver driverToEdit) {  this.carToEdit = carToEdit; }
@@ -45,20 +43,6 @@ public class AddDriverForm extends JFrame {
         setSize(600, 300);
         this.mainWindow = mainW;
 
-        //labels
-        if(isDriverMode){
-            nameOrBrand.setText("Imię");
-            surnameOrModel.setText("Nazwisko");
-            ageOrYear.setText("Wiek");
-            infoOrVim.setText("Uwagi");
-        }
-        if(isCarMode){
-            nameOrBrand.setText("Marka");
-            surnameOrModel.setText("Model");
-            ageOrYear.setText("Rok produkcji");
-            infoOrVim.setText("VIN");
-        }
-
         dodajButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -67,10 +51,12 @@ public class AddDriverForm extends JFrame {
 
                     if(isEditMode){
                         if(driverToEdit != null){
+                            getDriverBasedOnInputData(); // modifies driverToEdit
                             System.out.print(  System.identityHashCode(driverToEdit) + "\n");
                             mainWindow.saveEditedDriver(driverToEdit);
                         }
                         if(carToEdit != null){
+                            getCarBasedOnInputData(); // modifies carToEdit
                             //TODO car edut method in main window
                             //mainWindow.saveEditedCar(carToEdit);
                         }
@@ -127,5 +113,25 @@ public class AddDriverForm extends JFrame {
             textField3.setText("" + driverToEdit.getAge());
             textField4.setText(driverToEdit.getInfo());
         }
+    }
+
+    public void setLabels(){
+        //labels
+        if(isDriverMode){
+            nameOrBrand.setText("Imię");
+            surnameOrModel.setText("Nazwisko");
+            ageOrYear.setText("Wiek");
+            infoOrVim.setText("Uwagi");
+        }
+        if(isCarMode){
+            nameOrBrand.setText("Marka");
+            surnameOrModel.setText("Model");
+            ageOrYear.setText("Rok produkcji");
+            infoOrVim.setText("VIN");
+        }
+        nameOrBrand.paintImmediately(nameOrBrand.getVisibleRect());
+        surnameOrModel.paintImmediately(surnameOrModel.getVisibleRect());
+        ageOrYear.paintImmediately(ageOrYear.getVisibleRect());
+        infoOrVim.paintImmediately(infoOrVim.getVisibleRect());
     }
 }
