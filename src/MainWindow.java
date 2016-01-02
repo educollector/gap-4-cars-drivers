@@ -126,15 +126,11 @@ public class MainWindow extends JFrame {
     public void addDriver(Driver d){
         drivers.add(d);
         displayDrivers();
-//        DriverTableModel tableModel = (DriverTableModel) tableCars.getModel();
-//        tableModel.fireTableDataChanged();
     }
 
     public void saveEditedDriver(Driver d){
         System.out.print(System.identityHashCode(d)+ "\n");
         displayDrivers();
-//        DriverTableModel tableModel = (DriverTableModel) tableCars.getModel();
-//        tableModel.fireTableDataChanged();
     }
 
     public void deleteDriver(int index){
@@ -142,8 +138,6 @@ public class MainWindow extends JFrame {
         drivers.remove(index);
         d.delete();//TODO: save change
         displayDrivers();
-//        DriverTableModel tableModel = (DriverTableModel) tableCars.getModel();
-//        tableModel.fireTableDataChanged();
     }
 
 
@@ -152,11 +146,6 @@ public class MainWindow extends JFrame {
         driversModel.m_macDataVector.clear();
         for(Driver d : drivers){
             driversModel.m_macDataVector.addElement(d);
-//            List<Car> cars = new ArrayList<Car>();
-//            for(Car c : cars){
-//                if(d.id == c.getDriverId()){
-//                }
-//            }
         }
         tableDrivers.setModel(driversModel);
         driversModel.fireTableDataChanged();
