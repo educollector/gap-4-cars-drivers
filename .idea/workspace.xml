@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a8afc25-4435-46bf-a8cf-c3fb32c3c285" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/carsData.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/domain/Car.java" afterPath="$PROJECT_DIR$/src/domain/Car.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data.txt" afterPath="$PROJECT_DIR$/Data.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/domain/Driver.java" afterPath="$PROJECT_DIR$/src/domain/Driver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainWindow.java" afterPath="$PROJECT_DIR$/src/MainWindow.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -32,12 +35,12 @@
           <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.1893733">
-                  <caret line="80" column="146" selection-start-line="80" selection-start-column="146" selection-end-line="80" selection-end-column="146" />
+                <state vertical-scroll-proportion="0.3525557">
+                  <caret line="111" column="110" selection-start-line="111" selection-start-column="110" selection-end-line="111" selection-end-column="110" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#6939#6940#0" expanded="true" />
-                    <element signature="e#6982#6983#0" expanded="true" />
+                    <element signature="e#5417#5418#0" expanded="true" />
+                    <element signature="e#5460#5461#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -46,8 +49,8 @@
           <file leaf-file-name="AddDriverForm.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/AddDriverForm.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-62.77778">
-                  <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+                <state vertical-scroll-proportion="-20.0">
+                  <caret line="84" column="16" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="16" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -90,26 +93,16 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Driver.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="Driver.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/domain/Driver.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+                <state vertical-scroll-proportion="1.0658228">
+                  <caret line="66" column="62" selection-start-line="66" selection-start-column="62" selection-end-line="66" selection-end-column="62" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#1375#1376#0" expanded="true" />
-                    <element signature="e#1410#1411#0" expanded="true" />
+                    <element signature="e#1451#1452#0" expanded="true" />
+                    <element signature="e#1486#1487#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Model.java" pinned="false" current-in-tab="false">
-            <entry file="jar://$PROJECT_DIR$/lib/activejdbc-1.4.20-sources.jar!/org/javalite/activejdbc/Model.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="55" column="22" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -133,12 +126,14 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Car.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Car.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/domain/Car.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.07594936">
-                  <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-                  <folding />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -211,13 +206,13 @@
         <option value="$PROJECT_DIR$/src/CarTableModel.java" />
         <option value="$PROJECT_DIR$/src/DriverTableModel.java" />
         <option value="$PROJECT_DIR$/src/MainWindow.form" />
-        <option value="$PROJECT_DIR$/src/domain/Driver.java" />
         <option value="$PROJECT_DIR$/src/AddDriverForm.form" />
         <option value="$PROJECT_DIR$/src/AddDriverForm.java" />
         <option value="$PROJECT_DIR$/src/Mapper.java" />
         <option value="$PROJECT_DIR$/src/MapperSingleton.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/domain/Car.java" />
+        <option value="$PROJECT_DIR$/src/domain/Driver.java" />
         <option value="$PROJECT_DIR$/src/MainWindow.java" />
       </list>
     </option>
@@ -573,7 +568,7 @@
       <workItem from="1450042088393" duration="9837000" />
       <workItem from="1450294784290" duration="4798000" />
       <workItem from="1451466037779" duration="30000" />
-      <workItem from="1451667955017" duration="31973000" />
+      <workItem from="1451667955017" duration="37775000" />
     </task>
     <task id="LOCAL-00001" summary="Dziala: dodawanie samochodu. Nie dziala: odswiezanie okna po dodaniu samochodu">
       <created>1451729828571</created>
@@ -585,7 +580,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50318000" />
+    <option name="totallyTimeSpent" value="56120000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2467" y="-7" width="2362" height="1412" extended-state="0" />
@@ -635,27 +630,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MainWindow.java</url>
-          <line>82</line>
-          <properties />
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MainWindow.java</url>
-          <line>87</line>
-          <properties />
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/MainWindow.java</url>
-          <line>84</line>
-          <properties />
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="65" />
+      <option name="time" value="74" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
@@ -675,8 +650,8 @@
           <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6939#6940#0" expanded="true" />
-            <element signature="e#6982#6983#0" expanded="true" />
+            <element signature="e#5417#5418#0" expanded="true" />
+            <element signature="e#5460#5461#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -713,8 +688,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1375#1376#0" expanded="true" />
-            <element signature="e#1410#1411#0" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+            <element signature="e#1486#1487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -725,8 +700,8 @@
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6939#6940#0" expanded="true" />
-            <element signature="e#6982#6983#0" expanded="true" />
+            <element signature="e#5417#5418#0" expanded="true" />
+            <element signature="e#5460#5461#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -763,8 +738,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1375#1376#0" expanded="true" />
-            <element signature="e#1410#1411#0" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+            <element signature="e#1486#1487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -775,8 +750,8 @@
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6939#6940#0" expanded="true" />
-            <element signature="e#6982#6983#0" expanded="true" />
+            <element signature="e#5417#5418#0" expanded="true" />
+            <element signature="e#5460#5461#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -821,8 +796,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1375#1376#0" expanded="true" />
-            <element signature="e#1410#1411#0" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+            <element signature="e#1486#1487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -850,8 +825,8 @@
           <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6939#6940#0" expanded="true" />
-            <element signature="e#6982#6983#0" expanded="true" />
+            <element signature="e#5417#5418#0" expanded="true" />
+            <element signature="e#5460#5461#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -862,8 +837,8 @@
           <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="8" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1375#1376#0" expanded="true" />
-            <element signature="e#1410#1411#0" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+            <element signature="e#1486#1487#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1039,26 +1014,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/activejdbc-1.4.20-sources.jar!/org/javalite/activejdbc/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="55" column="22" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1375#1376#0" expanded="true" />
-            <element signature="e#1410#1411#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MapperSingleton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1084,16 +1039,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AddDriverForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-62.77778">
-          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1102,22 +1047,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/activejdbc-1.4.20-sources.jar!/org/javalite/activejdbc/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24741298">
+          <caret line="2439" column="19" selection-start-line="2439" selection-start-column="19" selection-end-line="2439" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/Car.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07594936">
-          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0658228">
+          <caret line="66" column="62" selection-start-line="66" selection-start-column="62" selection-end-line="66" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1451#1452#0" expanded="true" />
+            <element signature="e#1486#1487#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AddDriverForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.0">
+          <caret line="84" column="16" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1893733">
-          <caret line="80" column="146" selection-start-line="80" selection-start-column="146" selection-end-line="80" selection-end-column="146" />
+        <state vertical-scroll-proportion="0.3525557">
+          <caret line="111" column="110" selection-start-line="111" selection-start-column="110" selection-end-line="111" selection-end-column="110" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6939#6940#0" expanded="true" />
-            <element signature="e#6982#6983#0" expanded="true" />
+            <element signature="e#5417#5418#0" expanded="true" />
+            <element signature="e#5460#5461#0" expanded="true" />
           </folding>
         </state>
       </provider>

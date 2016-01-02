@@ -1,6 +1,7 @@
 package domain; /**
  * Created by olaskierbiszewska on 13.12.15.
  */
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.javalite.activejdbc.Model;
 
 import java.util.List;
@@ -48,7 +49,9 @@ public class Driver extends Model {
     public void setInfo(String info) { set("info", info); }
 
     public List<Car> getCars() {
-        if (carList == null) refresh();
+        if (carList == null) {
+            refresh();
+        }
         return carList;
     }
 
@@ -62,15 +65,17 @@ public class Driver extends Model {
     }
 
     /** Do uzycia przy zapisie do bazy po wczytaniu z pliku */
-    //TODO why saveIt() instead of save()?
     @Override
     public boolean saveIt() {
+        final boolean flgSaved = super.saveIt();
+        final int driverId = getId();
         if (carList != null) {
             for (Car car : carList) {
+                car.setDriverId(driverId);
                 car.saveIt();
             }
         }
-        return super.saveIt();
+        return flgSaved;
     }
 
     @Override

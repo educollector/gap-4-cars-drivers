@@ -30,6 +30,7 @@ public class MainWindow extends JFrame {
     private JButton deleteCarButton;
     private JButton editCarButton;
     private List<Driver> drivers;
+    private List<Driver>driversFromFile;
 
     private AddDriverForm addDriverForm;
 
@@ -50,62 +51,9 @@ public class MainWindow extends JFrame {
         clearCarsTable();
 
 
-        // JSON
-        final ObjectMapper mapper = MapperSingleton.get();
-        try {
-
-            final StringWriter sw = new StringWriter();
-            mapper.writeValue(sw, drivers);
-            System.out.println(sw.toString());//use toString() to convert to JSON
-
-            try (FileWriter file = new FileWriter("Data.txt")) {
-                file.write(sw.toString());
-                System.out.println("Successfully Copied JSON Object to File...");
-            }
-
-
-//            final OutputStream out = new ByteArrayOutputStream();
-//            mapper.writeValue(out, drivers);
-
-//            final byte[] data = out.toByteArray();
-//            System.out.println(new String(data));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        //read from file
-        try{
-            String jsonString = readFile("Data.txt");
-            List<Driver>driversFromFile = mapper.readValue(jsonString, mapper.getTypeFactory().constructCollectionType(List.class, Driver.class));
-            Driver d = driversFromFile.get(1);
-            System.out.println("Successfully read JSON Object from File...");
-        }catch (JsonProcessingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-
-//        try {
-//            ObjectMapper mapper = MapperSingleton.get();
-//            String json = mapper.writeValueAsString(car);
-//            System.out.println(json);
-//
-//            String carJson = "{\"year\":1233,\"model\":\"Toyota\",\"brand\":\"Supra\",\"vin\":null}";
-//            Car carFromJson = mapper.readValue(carJson, Car.class);
-//            System.out.println(carFromJson.toString());
-//        } catch (JsonProcessingException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-
+        //saveDataToFile();
+        readDataFromFile();
+        displayDrivers();
 
         /** LISTENERS TABLE DRIVERS */
         addDriverButton.addActionListener(new ActionListener() {
@@ -151,9 +99,17 @@ public class MainWindow extends JFrame {
                     // print first column value from selected row
                     System.out.println(tableDrivers.getValueAt(tableDrivers.getSelectedRow(), 0).toString());
                     Driver d = drivers.get(tableDrivers.getSelectedRow());
-                    d.refresh();
                     displayCars(d);
                 }
+            }
+        });
+
+        /** LISTENER TO THIS WINDOW*/
+
+        this.addWindowListener(new java.awt.event.WindowAdapter() {
+            @Override
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                MainWindow.this.showAlertWithMessage("Aplikacja zostanie zamknięta a dane zapisane do pliku");
             }
         });
 
@@ -202,23 +158,6 @@ public class MainWindow extends JFrame {
                 }
             }
         });
-    }
-
-    String readFile(String fileName) throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader(fileName));
-        try {
-            StringBuilder sb = new StringBuilder();
-            String line = br.readLine();
-
-            while (line != null) {
-                sb.append(line);
-                sb.append("\n");
-                line = br.readLine();
-            }
-            return sb.toString();
-        } finally {
-            br.close();
-        }
     }
 
     private void createUIComponents() {
@@ -304,7 +243,6 @@ public class MainWindow extends JFrame {
         }
         tableCars.setModel(carsModel);
         carsModel.fireTableDataChanged();
-
     }
 
     private void clearCarsTable(){
@@ -312,7 +250,6 @@ public class MainWindow extends JFrame {
         carsModel.m_macDataVector.clear();
         tableCars.setModel(carsModel);
         carsModel.fireTableDataChanged();
-
     }
 
     private void showAlertWithMessage(String message){
@@ -326,5 +263,61 @@ public class MainWindow extends JFrame {
                 JOptionPane.NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
                 null, options , options[0]);
+    }
+
+    /** Saving and reading to file */
+    private void saveDataToFile(){
+        final ObjectMapper mapper = MapperSingleton.get();
+        try {
+            final StringWriter sw = new StringWriter();
+            mapper.writeValue(sw, drivers);
+            System.out.println(sw.toString());//use toString() to convert to JSON
+
+            try (FileWriter file = new FileWriter("Data.txt")) {
+                file.write(sw.toString());
+                System.out.println("Successfully Copied JSON Object to File...");
+            }
+//            final OutputStream out = new ByteArrayOutputStream();
+//            mapper.writeValue(out, drivers);
+//            final byte[] data = out.toByteArray();
+//            System.out.println(new String(data));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void readDataFromFile(){
+        final ObjectMapper mapper = MapperSingleton.get();
+        try{
+            String jsonString = readFile("Data.txt");
+            driversFromFile = mapper.readValue(jsonString, mapper.getTypeFactory().constructCollectionType(List.class, Driver.class));
+            for (Driver d : driversFromFile) {
+                d.saveIt();
+            }
+            System.out.println("Successfully read JSON Object from File...");
+        }catch (JsonProcessingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    String readFile(String fileName) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(fileName));
+        try {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append("\n");
+                line = br.readLine();
+            }
+            return sb.toString();
+        } finally {
+            br.close();
+        }
     }
 }
