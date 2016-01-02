@@ -72,7 +72,7 @@ public class MainWindow extends JFrame {
                     int rowIndex = tableDrivers.getSelectedRow();
                     deleteDriver(rowIndex);
                 }else{
-                    showAlertWithMessage("Wybierz kierowcę i samochód");
+                    showAlertWithMessage("Wybierz kierowcę");
                 }
                 clearCarsTable();
             }
@@ -166,6 +166,7 @@ public class MainWindow extends JFrame {
         CarTableModel carModel = new CarTableModel(dummyMacData);
         tableCars = new JTable(carModel);
         tableCars.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tableCars.getColumnModel().getColumn(2).setPreferredWidth(5);
 
 
         Vector dummyDataDriver = new Vector(10, 10);
@@ -173,6 +174,7 @@ public class MainWindow extends JFrame {
         tableDrivers = new JTable(driverModel);
         tableDrivers.setRowSelectionAllowed(true);
         tableDrivers.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        tableDrivers.getColumnModel().getColumn(2).setPreferredWidth(5);
     }
 
     /** Driver CRUD methods */

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7a8afc25-4435-46bf-a8cf-c3fb32c3c285" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/carsData.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/domain/Car.java" afterPath="$PROJECT_DIR$/src/domain/Car.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Data.txt" afterPath="$PROJECT_DIR$/Data.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/domain/Driver.java" afterPath="$PROJECT_DIR$/src/domain/Driver.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainWindow.form" afterPath="$PROJECT_DIR$/src/MainWindow.form" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainWindow.java" afterPath="$PROJECT_DIR$/src/MainWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="gap4pojazdy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,14 +31,21 @@
           <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3525557">
-                  <caret line="111" column="110" selection-start-line="111" selection-start-column="110" selection-end-line="111" selection-end-column="110" />
+                <state vertical-scroll-proportion="0.3918742">
+                  <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#5417#5418#0" expanded="true" />
-                    <element signature="e#5460#5461#0" expanded="true" />
+                    <element signature="e#5406#5407#0" expanded="true" />
+                    <element signature="e#5449#5450#0" expanded="true" />
                   </folding>
                 </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="MainWindow.form" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/MainWindow.form">
+              <provider selected="true" editor-type-id="ui-designer">
+                <state />
               </provider>
             </entry>
           </file>
@@ -205,7 +208,6 @@
         <option value="$PROJECT_DIR$/src/database/Car.java" />
         <option value="$PROJECT_DIR$/src/CarTableModel.java" />
         <option value="$PROJECT_DIR$/src/DriverTableModel.java" />
-        <option value="$PROJECT_DIR$/src/MainWindow.form" />
         <option value="$PROJECT_DIR$/src/AddDriverForm.form" />
         <option value="$PROJECT_DIR$/src/AddDriverForm.java" />
         <option value="$PROJECT_DIR$/src/Mapper.java" />
@@ -213,6 +215,7 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/domain/Car.java" />
         <option value="$PROJECT_DIR$/src/domain/Driver.java" />
+        <option value="$PROJECT_DIR$/src/MainWindow.form" />
         <option value="$PROJECT_DIR$/src/MainWindow.java" />
       </list>
     </option>
@@ -284,6 +287,24 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="gap4pojazdy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gap4pojazdy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gap4pojazdy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MainWindow" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -568,7 +589,7 @@
       <workItem from="1450042088393" duration="9837000" />
       <workItem from="1450294784290" duration="4798000" />
       <workItem from="1451466037779" duration="30000" />
-      <workItem from="1451667955017" duration="37775000" />
+      <workItem from="1451667955017" duration="38246000" />
     </task>
     <task id="LOCAL-00001" summary="Dziala: dodawanie samochodu. Nie dziala: odswiezanie okna po dodaniu samochodu">
       <created>1451729828571</created>
@@ -580,7 +601,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56120000" />
+    <option name="totallyTimeSpent" value="56591000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2467" y="-7" width="2362" height="1412" extended-state="0" />
@@ -650,8 +671,8 @@
           <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5417#5418#0" expanded="true" />
-            <element signature="e#5460#5461#0" expanded="true" />
+            <element signature="e#5406#5407#0" expanded="true" />
+            <element signature="e#5449#5450#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -700,8 +721,8 @@
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5417#5418#0" expanded="true" />
-            <element signature="e#5460#5461#0" expanded="true" />
+            <element signature="e#5406#5407#0" expanded="true" />
+            <element signature="e#5449#5450#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -750,8 +771,8 @@
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5417#5418#0" expanded="true" />
-            <element signature="e#5460#5461#0" expanded="true" />
+            <element signature="e#5406#5407#0" expanded="true" />
+            <element signature="e#5449#5450#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -825,8 +846,8 @@
           <caret line="32" column="57" selection-start-line="32" selection-start-column="57" selection-end-line="32" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5417#5418#0" expanded="true" />
-            <element signature="e#5460#5461#0" expanded="true" />
+            <element signature="e#5406#5407#0" expanded="true" />
+            <element signature="e#5449#5450#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1034,11 +1055,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainWindow.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1087,14 +1103,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainWindow.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3525557">
-          <caret line="111" column="110" selection-start-line="111" selection-start-column="110" selection-end-line="111" selection-end-column="110" />
+        <state vertical-scroll-proportion="0.3918742">
+          <caret line="168" column="17" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5417#5418#0" expanded="true" />
-            <element signature="e#5460#5461#0" expanded="true" />
+            <element signature="e#5406#5407#0" expanded="true" />
+            <element signature="e#5449#5450#0" expanded="true" />
           </folding>
         </state>
       </provider>
