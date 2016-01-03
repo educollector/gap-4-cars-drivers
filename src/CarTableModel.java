@@ -8,7 +8,7 @@ import javax.swing.table.AbstractTableModel;
 import java.util.Vector;
 
 public class CarTableModel extends AbstractTableModel {
-    public String[] m_colNames = { "Marka", "Model", "Rok produkcji","VIM" };
+    public String[] m_colNames = { "Marka", "Model", "Rok produkcji","VIN" };
     public Class[] m_colTypes = { String.class, String.class, Integer.class, String.class};
     Vector m_macDataVector;
 

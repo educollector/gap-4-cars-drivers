@@ -8,7 +8,10 @@ import java.util.List;
 import java.util.Vector;
 
 /**
- * Created by olaskierbiszewska on 13.12.15.
+ * Represents a base JFrame of the application with Drivers list and Car for each driver list.
+ * Also, window provides buttons to edit, add and remove entities and to export and import data from file.
+ * @author Ola Skierbiszewska
+ * @version 1.0 Build Jan 5, 2016.
  */
 public class MainWindow extends JFrame {
     private JPanel rootPanel;
@@ -29,6 +32,9 @@ public class MainWindow extends JFrame {
 
     private AddDriverForm addDriverForm;
 
+    /**
+     * Creates main app window and registers all required listeners inside.
+     */
     public MainWindow() {
         super("App");
         pack();
@@ -37,14 +43,14 @@ public class MainWindow extends JFrame {
         setVisible(true);
         setSize(600, 600);
 
-        /** Import data from data base */
+        /* Import data from data base */
         drivers = new Driver().where("id >= ?", 0);
 
-        /** Displaying data */
+        /* Displaying data */
         displayDrivers();
         clearCarsTable();
 
-        /** LISTENERS TABLE DRIVERS */
+        /* LISTENERS TABLE DRIVERS */
         addDriverButton.addActionListener(e -> {
             addDriverForm = new AddDriverForm(MainWindow.this);
             addDriverForm.setIsDriverMode(true);
@@ -81,7 +87,7 @@ public class MainWindow extends JFrame {
             }
         });
 
-        /** LISTENER TABLE CARS */
+        /* LISTENER TABLE CARS */
         addCarButton.addActionListener(e -> {
             if (tableDrivers.getSelectedRow() > -1) {
                 addDriverForm = new AddDriverForm(MainWindow.this);
@@ -113,7 +119,7 @@ public class MainWindow extends JFrame {
             }
         });
 
-        /** LISTENER FILE OPERATIONS' BUTTONS */
+        /* LISTENER FILE OPERATIONS' BUTTONS */
         readFileButton.addActionListener(e -> {
             //Create a file chooser
             final JFileChooser fc = new JFileChooser();
@@ -142,12 +148,12 @@ public class MainWindow extends JFrame {
             }
         });
 
-        /** LISTENER TO THIS WINDOW*/
+        /* LISTENER TO THIS WINDOW*/
 
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-                MainWindow.this.showAlertWithMessage("Aplikacja zostanie zamknięta a dane zapisane do pliku");
+                //MainWindow.this.showAlertWithMessage("Aplikacja zostanie zamknięta a dane zapisane do pliku");
                 saveDataToFile("Data.txt");
             }
         });
@@ -170,17 +176,29 @@ public class MainWindow extends JFrame {
         tableDrivers.getColumnModel().getColumn(2).setPreferredWidth(5);
     }
 
-    /** Driver CRUD methods */
+    /* Driver CRUD methods */
+
+    /**
+     * <p>Adds a driver d to data source od Drivers list a and reload teh list to display current data</p>
+     * @param d the Driver object saved previously in data base via {@link Driver#save()}
+     */
     public void addDriver(Driver d){
         drivers.add(d);
         displayDrivers();
     }
 
-    public void reloadDriversTable(Driver d){
-        //TODO zazanczyc row z driverem d, ktory byl edytowany
+    /**
+     *<p>Reloads Drivers list adding current data to Driver table model</p>
+     */
+    public void reloadDriversTable(){
         displayDrivers();
     }
 
+    /**
+     * <p>Deletes a driver from Drivers list and from database based on the index of the driver on the list.</p>
+     * <p>After deletion the Drivers list is reloaded to display changes</p>
+     * @param index the index of the driver to delete (based on its position on the Drivers list)
+     */
     public void deleteDriver(int index){
         Driver d = drivers.get(index);
         drivers.remove(index);
@@ -188,7 +206,11 @@ public class MainWindow extends JFrame {
         displayDrivers();
     }
 
-    /** Car CRUD methods */
+    /**
+     * <p>Adds new car to the current data set.</p>
+     * <p>Car has to reference existing driver via {@link Car#setDriverId(Integer)}.</p>
+     * @param c a car to add
+     */
     public void addCar(Car c){
         if (tableDrivers.getSelectedRow() > -1) {
             Driver d = drivers.get(tableDrivers.getSelectedRow());
@@ -199,14 +221,22 @@ public class MainWindow extends JFrame {
         }
     }
 
-    public void reloadCarsTable(Car c){
-        //TODO zazanczyc row z driverem d, ktory byl edytowany
+    /**
+     * <p>Reloads data in Cars list for the driver selected on teh Drivers list</p>
+     */
+    public void reloadCarsTable(){
         if (tableDrivers.getSelectedRow() > -1) {
             Driver d = drivers.get(tableDrivers.getSelectedRow()); //or get Driver from drivers wher id=id_driver from c
             displayCars(d);
         }
     }
 
+    /**
+     * <p>Deletes the car whe one is selected on Cars list.</p>
+     * <p>The car references to its driver via {@link Car#setDriverId(Integer)}.
+     * The car is deleted from database and from its driver Cars list.
+     * </p>
+     */
     public void deleteCar(){
         if ((tableDrivers.getSelectedRow() > -1) && (tableCars.getSelectedRow() > -1)) {
             Driver d = drivers.get(tableDrivers.getSelectedRow());
@@ -219,7 +249,7 @@ public class MainWindow extends JFrame {
         }
     }
 
-    /** Display data methods */
+    /*Display data methods */
     private void displayDrivers(){
         DriverTableModel driversModel = (DriverTableModel) tableDrivers.getModel();
         driversModel.m_macDataVector.clear();
@@ -260,7 +290,7 @@ public class MainWindow extends JFrame {
                 null, options , options[0]);
     }
 
-    /** Saving and reading to file */
+    /* Saving and reading to file */
     private void saveDataToFile(String filePath){
         final ObjectMapper mapper = MapperSingleton.get();
         try {
@@ -288,7 +318,14 @@ public class MainWindow extends JFrame {
         }
     }
 
-    String readFile(String filePath) throws IOException {
+    /**
+     * Reads file contents into String object
+     *
+     * @param filePath full path to file, eg: /data/files/myfile.json
+     * @return String file contents
+     * @throws IOException when IO operation fails
+     */
+    public String readFile(String filePath) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filePath));
         try {
             StringBuilder sb = new StringBuilder();

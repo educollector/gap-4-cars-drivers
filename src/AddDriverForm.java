@@ -62,11 +62,11 @@ public class AddDriverForm extends JFrame {
                     if(isEditMode){
                         if(driverToEdit != null){
                             makeAndSaveDriverBasedOnInputData(); // modifies driverToEdit
-                            mainWindow.reloadDriversTable(driverToEdit);
+                            mainWindow.reloadDriversTable();
                         }
                         if(carToEdit != null){
                             maekAndSaveCarBasedOnInputData(); // modifies carToEdit
-                            mainWindow.reloadCarsTable(carToEdit);
+                            mainWindow.reloadCarsTable();
                         }
                     }else{
                         if(isDriverMode){
