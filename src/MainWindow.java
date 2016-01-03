@@ -24,7 +24,7 @@ public class MainWindow extends JFrame {
     private List<Driver> drivers;
     private List<Driver>driversFromFile;
 
-    private AddDriverForm addDriverForm;
+    private DetailsForm addDriverForm;
 
     /**
      * Creates main app window and registers all required listeners inside.
@@ -46,7 +46,7 @@ public class MainWindow extends JFrame {
 
         /* LISTENERS TABLE DRIVERS */
         addDriverButton.addActionListener(e -> {
-            addDriverForm = new AddDriverForm(MainWindow.this);
+            addDriverForm = new DetailsForm(MainWindow.this);
             addDriverForm.setIsDriverMode(true);
             addDriverForm.setLabels();
         });
@@ -63,7 +63,7 @@ public class MainWindow extends JFrame {
 
         editDriverButton.addActionListener(e -> {
             if (tableDrivers.getSelectedRow() > -1) {
-                addDriverForm = new AddDriverForm(MainWindow.this);
+                addDriverForm = new DetailsForm(MainWindow.this);
                 Driver d = drivers.get(tableDrivers.getSelectedRow());
                 addDriverForm.setDriverToEdit(d); //set isEditMode=true,isDriverMode=true, set labels for editMode
                 addDriverForm.setLabels();
@@ -84,7 +84,7 @@ public class MainWindow extends JFrame {
         /* LISTENER TABLE CARS */
         addCarButton.addActionListener(e -> {
             if (tableDrivers.getSelectedRow() > -1) {
-                addDriverForm = new AddDriverForm(MainWindow.this);
+                addDriverForm = new DetailsForm(MainWindow.this);
                 addDriverForm.setIsDriverMode(false);
                 addDriverForm.setLabels();
             }else {
@@ -94,7 +94,7 @@ public class MainWindow extends JFrame {
 
         editCarButton.addActionListener(e -> {
             if ((tableCars.getSelectedRow() > -1) && (tableDrivers.getSelectedRow() > -1)) {
-                addDriverForm = new AddDriverForm(MainWindow.this);
+                addDriverForm = new DetailsForm(MainWindow.this);
                 Driver d = drivers.get(tableDrivers.getSelectedRow());
                 Car c = d.getCars().get(tableCars.getSelectedRow());
                 addDriverForm.setCarToEdit(c); //set isEditMode=true,isDriverMode=false, set labels for editMode

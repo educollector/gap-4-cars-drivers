@@ -1,12 +1,19 @@
 /**
  * Created by olaskierbiszewska on 13.12.15.
+ * Provides implementations for most of the methods in the TableModel interface
+ * @author Ola Skierbiszewska
+ * @version 1.0 Build Jan 5, 2016.
  */
 import domain.Driver;
 
 import javax.swing.table.AbstractTableModel;
 import java.util.Vector;
 
-public class DriverTableModel extends AbstractTableModel {
+/**
+ * Defines the coluns headers names.
+ * Defines the data source collection.
+ */
+    public class DriverTableModel extends AbstractTableModel {
     private static final String[] COLUMN_NAMES= { "Imie", "Nazwisko", "Wiek","Uwagi" };
     private static final Class[] COLUMN_CLASSES = { String.class, String.class, Integer.class, String.class};
     Vector m_macDataVector;

@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
  * @version 1.0 Build Jan 5, 2016.
  */
 
-public class AddDriverForm extends JFrame {
+public class DetailsForm extends JFrame {
     private JPanel rootPanel;
     private JTextField textField1;
     private JTextField textField2;
@@ -62,7 +62,7 @@ public class AddDriverForm extends JFrame {
      * Prepares the frame to display content, contains all necessary listeners
      * @param mainW the refference for the main application window
      */
-    public AddDriverForm(MainWindow mainW) {
+    public DetailsForm(MainWindow mainW) {
         super("App");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         pack();
