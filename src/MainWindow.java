@@ -7,12 +7,6 @@ import java.io.*;
 import java.util.List;
 import java.util.Vector;
 
-/**
- * Represents a base JFrame of the application with Drivers list and Car for each driver list.
- * Also, window provides buttons to edit, add and remove entities and to export and import data from file.
- * @author Ola Skierbiszewska
- * @version 1.0 Build Jan 5, 2016.
- */
 public class MainWindow extends JFrame {
     private JPanel rootPanel;
     private JTable tableDrivers;

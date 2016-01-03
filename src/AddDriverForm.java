@@ -1,4 +1,3 @@
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import domain.Car;
 import domain.Driver;
 
@@ -7,8 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by olaskierbiszewska on 13.12.15.
+ * Represents a JFrame of the add/edit window with fields representing added/edited entity.
+ * The window provides checking if all text fields are fulfilled and a button to save data.
+ * @author Ola Skierbiszewska
+ * @version 1.0 Build Jan 5, 2016.
  */
+
 public class AddDriverForm extends JFrame {
     private JPanel rootPanel;
     private JTextField textField1;
@@ -27,13 +30,27 @@ public class AddDriverForm extends JFrame {
     private Driver driverToEdit;
     private Car carToEdit;
 
+    /**
+     * Sets the mode of teh window according to the entity type
+     * @param isDriverMode boolean value representing mode, if true it is driver mode, if false - car mode
+     */
     public void setIsDriverMode(Boolean isDriverMode) { this.isDriverMode = isDriverMode; }
+
+    /**
+     * Sets the driverToEdit property
+     * @param driverToEdit the object that is to be edited
+     */
     public void setDriverToEdit(Driver driverToEdit) {
         this.driverToEdit = driverToEdit;
         isEditMode = true;
         isDriverMode = true;
         setValuesForEditMode();
     }
+
+    /**
+     * Sets the carToEdit property
+     * @param carToEdit the object that is to be edited
+     */
     public void setCarToEdit(Car carToEdit) {
         this.carToEdit = carToEdit;
         isEditMode = true;
@@ -41,6 +58,10 @@ public class AddDriverForm extends JFrame {
         setValuesForEditMode();
     }
 
+    /**
+     * Prepares the frame to display content, contains all necessary listeners
+     * @param mainW the refference for the main application window
+     */
     public AddDriverForm(MainWindow mainW) {
         super("App");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -65,7 +86,7 @@ public class AddDriverForm extends JFrame {
                             mainWindow.reloadDriversTable();
                         }
                         if(carToEdit != null){
-                            maekAndSaveCarBasedOnInputData(); // modifies carToEdit
+                            maekandsavecarbasedoninputdata(); // modifies carToEdit
                             mainWindow.reloadCarsTable();
                         }
                     }else{
@@ -74,7 +95,7 @@ public class AddDriverForm extends JFrame {
                             mainWindow.addDriver(driver);
                         }
                         if(!isDriverMode){
-                           Car car = maekAndSaveCarBasedOnInputData();
+                           Car car = maekandsavecarbasedoninputdata();
                             mainWindow.addCar(car);
                         }
 
@@ -87,6 +108,10 @@ public class AddDriverForm extends JFrame {
         });
     }
 
+    /**
+     * Reads the data from the text fields, create a driver object and save it to the data base
+     * @return a driver object crated from data entered in text fields
+     */
     public Driver makeAndSaveDriverBasedOnInputData() {
         Driver d = driverToEdit == null ? new Driver() : driverToEdit;
         d.setName(textField1.getText());
@@ -98,7 +123,12 @@ public class AddDriverForm extends JFrame {
         return d;
     }
 
-    public Car maekAndSaveCarBasedOnInputData() {
+    /**
+     * Reads the data from the text fields, create a car object and save it to the data base
+     * @return a car object crated from data entered in text fields
+     */
+
+    public Car maekandsavecarbasedoninputdata() {
         Car c = carToEdit == null ? new Car() : carToEdit;
         c.setBrand(textField1.getText());
         c.setModel(textField2.getText());
@@ -109,8 +139,9 @@ public class AddDriverForm extends JFrame {
         return c;
     }
 
-    public boolean validateFields(){
-        String test = textField1.getText();
+
+
+    private boolean validateFields(){
         if(textField1.getText().equals("") && textField1.getText().equals("") && textField1.getText().equals("") && textField1.getText().equals("")){
             return false;
         }else{
@@ -118,9 +149,13 @@ public class AddDriverForm extends JFrame {
         }
 
     }
-    public void CloseFrame(){
+    private void CloseFrame(){
         super.dispose();
     }
+
+    /**
+     * Sets initial values of the text fields of a driver or a car that is to be edited
+     */
 
     public void setValuesForEditMode(){
         if(driverToEdit!=null){
@@ -137,6 +172,9 @@ public class AddDriverForm extends JFrame {
         }
     }
 
+    /**
+     * Set the labels texts according to the isDriverMode property
+     */
     public void setLabels(){
         //labels
         if(isDriverMode){
